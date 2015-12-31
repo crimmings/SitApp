@@ -1,0 +1,48 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to SIT: Take My Kids
+
+  //WRAPPER
+  #wrapper
+    //SITTER INFO
+    #sitterInfo
+      h2 Babysitter Info
+      p
+        strong Name:
+          <span id='sitterInfoName'></span>
+        br
+        strong Phone:
+          <span id='sitterInfoPhone'></span>
+        br
+        strong E-Mail:
+          <span id='sitterInfoEmail'></span>
+        br
+    // /SITTER INFO
+
+    //SITTER LIST
+    h2 Babysitters
+    #sitterList
+      table
+        thead
+          th Babysitter
+          th Phone
+          th Email
+          th Delete?
+        tbody
+    // SITTER LIST
+
+    //ADD SITTER
+    h2 Add A Babysitter
+    #addSitter
+        fieldset
+          input#inputSitterName(type='text', placeholder='Babysitter')
+          input#inputPhone(type='text', placeholder='Phone')
+          input#inputEmail(type='text', placeholder='E-Mail')
+          button#btnAddSitter  Add Sitter
+    // /ADD SITTER
+
+
+   // WRAPPER
+
