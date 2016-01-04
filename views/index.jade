@@ -29,20 +29,37 @@ block content
           th Babysitter
           th Phone
           th Email
-          th Delete?
+          th Delete / Update?
         tbody
     // SITTER LIST
 
     //ADD SITTER
+  #addSitterPanel
     h2 Add A Babysitter
     #addSitter
         fieldset
           input#inputSitterName(type='text', placeholder='Babysitter')
-          input#inputPhone(type='text', placeholder='Phone')
-          input#inputEmail(type='text', placeholder='E-Mail')
+          input#inputSitterPhone(type='text', placeholder='Phone')
+          input#inputSitterEmail(type='text', placeholder='E-Mail')
+          br
           button#btnAddSitter  Add Sitter
     // /ADD SITTER
 
+  //UPDATE SITTER
+  #updateSitterPanel
+    h2 Update A Babysitter
+    #updateSitter
+      fieldset
+        input#updateSitterName(type='text', placeholder='Babysitter')
+        input#updateSitterPhone(type='text', placeholder='Phone')
+        input#updateSitterEmail(type='text', placeholder='E-Mail')
+        br
+        button#btnUpdateSitter Add Sitter
+        button#btnCancelUpdateSitter Cancel
+    // /UPDATE SITTER
 
-   // WRAPPER
+
+
+
+  // WRAPPER
 
