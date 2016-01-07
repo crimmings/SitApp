@@ -14,7 +14,7 @@ router.post('/', function (req, res){
         service: 'Gmail',
         auth: {
             user: "the.crimmings@gmail.com",
-            pass: "xxxxxxxxx" // add app specific pw later
+            pass: "1chalomot@" // add app specific pw later
         }
     });
 
@@ -25,8 +25,10 @@ router.post('/', function (req, res){
         subject: 'We Need A Babysitter!',
         text: req.body.message
     };
+    console.log("req.body.message: " + req.body.message);
 
     smtpTrans.sendMail(mailOpts, function(error, response){
+        console.log("mailOpts: " + mailOpts);
         // email not sent
         if(error){
             res.render('request', {title: 'The Crimmings', msg: 'Uh, we have a problem.', err: true, page: 'request'})

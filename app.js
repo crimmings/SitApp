@@ -11,7 +11,7 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/sitapp');
 
-
+// Routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var request = require('./routes/request');
@@ -41,7 +41,7 @@ app.use(function(req, res, next){
   next();
 });
 
-
+//
 app.use('/', routes);
 app.use('/users', users);
 app.use('/request', request);

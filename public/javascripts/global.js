@@ -2,40 +2,41 @@
  * Created by crimmings on 12/30/15.
  */
 
+
 // sitterListData array for filling in info box
 var sitterListData = [];
 
-// DOM
+/*** DOM HANDLERS ***/
 
 $(document).ready(function() {
 
-    // Babysitter name link click
+    // Click link of babysitter name
     $('#sitterList table tbody').on('click', 'td a.linkshowsitter', showSitterInfo);
 
-    // Add Sitter Button Click
+    // Button click to add babysitter
     $('#btnAddSitter').on('click', addSitter);
 
-    // Delete Sitter link click
+    // Click link to delete babysitter
     $('#sitterList table tbody').on('click', 'td a.linkdeletesitter', deleteSitter);
 
-    // Update Sitter on click
+    // Click link to update sitter
     $('#sitterList table tbody').on('click', 'td a.linkupdatesitter', changeSitterInfo);
 
-    // Cancel Update Sitter button click
+    // Button click to cancel update of sitter information
     $('#btnCancelUpdateSitter').on('click', togglePanels);
 
     // add class to update fields
     $('#updateSitter input').on('change', function(){$(this).addClass('updated')});
 
-    // update sitter button click
+    // Button click to update sitter information
     $('#btnUpdateSitter').on('click', updateSitter);
 
-    // Fill table with sitters on page load
+    // Function to fill table with sitters on page load
     fillTable();
 });
 
 
-// Functions
+/*** FUNCTIONS ***/
 
 // Fill table with data
 function fillTable() {
@@ -46,10 +47,11 @@ function fillTable() {
     // jQuery AJAX call for JSON
     $.getJSON( '/babysitters', function( data ) {
 
+        console.log("sitterListData: " + sitterListData);
         //Stick babysitter array into a sitterList variable in the global object
         sitterListData = data;
 
-        /*sticking all of returned sitter data, from the database, into global variable so it can be accessed without
+        /* Sticking all of returned sitter data, from the database, into global variable so it can be accessed without
         repeatedly hitting on database each time sitter name clicked in table.*/
 
         // For each item in JSON, add a table row and cells to the content string
@@ -64,42 +66,43 @@ function fillTable() {
 
         });
 
-        // Inject the whole content string into existing HTML table
+        // Inject the whole content string into existing table
         $('#sitterList table tbody').html(tableContent);
     });
 };
 
-// Show Sitter Info
+// Show Sitter Info in Info Panel
 function showSitterInfo(event) {
 
-    // Prevent Link from Firing
     event.preventDefault();
 
     // Retrieve sitter's name from link rel attribute
     var thisSitterName = $(this).attr('rel');
+    console.log("thisSitterName: " + thisSitterName);
 
-    // Get Index of object based on id value
+    // Get Index of object based on id value (learn more about this)
     var arrayPosition = sitterListData.map(function(arrayItem) { return arrayItem.babysitter; }).indexOf(thisSitterName);
-
+    console.log("arrayPosition: " + arrayPosition);
 
     // Get Sitter Object
     var thisSitterObject = sitterListData[arrayPosition];
 
-    //Populate Info Box
+    // Populate Sitter Info Box
     $('#sitterInfoName').text(thisSitterObject.babysitter);
     $('#sitterInfoPhone').text(thisSitterObject.phone);
     $('#sitterInfoEmail').text(thisSitterObject.email);
-    //$('#userInfoLocation').text(thisUserObject.location);
+    //$('#userInfoLocation').text(thisUserObject.location); // add something else? drive? age?
 
 };
 
 
-// Add Sitter
+// Add sitter to database and table
 
 function addSitter(event){
+
     event.preventDefault();
 
-    //basic validation -- increase errorCount variable if any fields are blank
+    // basic validation -- increase errorCount variable if any fields are blank
 
     var errorCount = 0;
 
@@ -111,7 +114,7 @@ function addSitter(event){
 
     if(errorCount === 0) {
 
-        //if it is, compile all sitter info into one object
+        // if it is, compile all sitter info into one object
         var newSitter = {
             'babysitter': $('#addSitter fieldset input#inputSitterName').val(),
             'phone': $('#addSitter fieldset input#inputSitterPhone').val(),
@@ -125,8 +128,9 @@ function addSitter(event){
             url: '/addsitter',
             dataType: 'JSON'
         }).done(function (response) {
+            console.log("This is response.msg: " + response.msg);
 
-            // Check for successful (empty) response
+            // Check for successful (empty) response -- clarify what response.msg is)
             if (response.msg === '') {
 
                 // Clear the form inputs
@@ -150,8 +154,8 @@ function addSitter(event){
 
 };
 
-// put sitter info into the "update sitter panel"
 
+// put sitter info into the "update sitter panel"
 function changeSitterInfo(event){
 
     event.preventDefault();
@@ -162,28 +166,27 @@ function changeSitterInfo(event){
     }
 
     // Get index of object based on _id value
-
     var _id = $(this).attr('rel');
     var arrayPosition = sitterListData.map(function(arrayItem){ return arrayItem._id; }).indexOf(_id);
-console.log(JSON.stringify(arrayPosition));
-    // Get Sitter Object
+console.log("this is JSON.stringify(arrayPosition) " + JSON.stringify(arrayPosition));
 
+    // Get Sitter Object
     var thisSitterObject = sitterListData[arrayPosition];
 console.log("updatesitter =" + JSON.stringify(thisSitterObject));
-    // fill info box
 
+    // Fill info box
     $('#updateSitterName').val(thisSitterObject.babysitter);
     $('#updateSitterPhone').val(thisSitterObject.phone);
     $('#updateSitterEmail').val(thisSitterObject.email);
 
-    // put the id into the REL of hte 'update sitter' block
+    // Put the id into the REL of tbe 'update sitter' block
     $('#updateSitter').attr('rel', thisSitterObject._id);
 };
 
-// update Sitter
 
+// update Sitter information
 function updateSitter(event) {
-    console.log("in update sitter function");
+    console.log("oh hi, i'm in ur update sitter function");
 
     event.preventDefault();
 
@@ -197,11 +200,12 @@ function updateSitter(event) {
 
         // set _id of sitter to be update (look into this syntax)
         var _id = $(this).parentsUntil('div').parent().attr('rel');
-        console.log("ID = "+ _id);
+        console.log("Sitter ID = "+ _id);
+
         // create a collection of the updated fields
         var fieldsToBeUpdated = $('#updateSitter input.updated');
 
-        // create object of the pairs
+        // create object of the pairs (check syntax on 'pairs')
         var updatedFields = {};
         $(fieldsToBeUpdated).each(function () {
             var key = $(this).attr('placeholder').replace('', '').toLowerCase();
@@ -220,6 +224,7 @@ function updateSitter(event) {
 
             // check for a successful(empty) response
             if (response.msg === '') {
+                console.log("response.msg: " + response.msg);
                 togglePanels();
             }
             else {
@@ -247,7 +252,7 @@ function deleteSitter(event) {
     // Check and make sure the sitter is confirmed
     if (confirmation === true) {
 
-        // If they did, delete
+        // If they did, delete and do that Ajax thang
         $.ajax({
             type: 'DELETE',
             url: '/deletesitter/' + $(this).attr('rel')
@@ -255,6 +260,7 @@ function deleteSitter(event) {
 
             // Check for a successful (blank) response
             if (response.msg === '') {
+                console.log('response.msg: ' + response.msg);
             }
             else {
                 alert('Error: ' + response.msg);
