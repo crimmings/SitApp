@@ -1,0 +1,15 @@
+//
+   Created by crimmings on 1/6/16.
+
+extends layout
+
+block content
+    h1= title
+    //h2= msg
+
+    if(typeof msg !== 'undefined')
+        if(!!err)
+            div(class='msgbox err') #{msg}
+        else
+            div(class='msgbox success') #{msg}
+

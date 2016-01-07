@@ -4,6 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var nodemailer = require('nodemailer');
 
 //Database
 var mongo = require('mongodb');
@@ -13,6 +14,11 @@ var db = monk('localhost:27017/sitapp');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var request = require('./routes/request');
+var babysitters = require('./routes/babysitters');
+var addsitter = require('./routes/addsitter');
+var updatesitter = require('./routes/updatesitter');
+var deletesitter = require('./routes/deletesitter');
 
 var app = express();
 
@@ -28,7 +34,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//app.put('/updatesitter/:id', sitter.updatesitter(db));
 
 // make db accessible to our router
 app.use(function(req, res, next){
@@ -39,8 +44,11 @@ app.use(function(req, res, next){
 
 app.use('/', routes);
 app.use('/users', users);
-
-
+app.use('/request', request);
+app.use('/babysitters', babysitters);
+app.use('/addsitter', addsitter);
+app.use('/updatesitter', updatesitter);
+app.use('/deletesitter', deletesitter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

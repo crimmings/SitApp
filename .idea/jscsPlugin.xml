@@ -4,7 +4,6 @@
     <option name="jscsrcFile" value="$USER_HOME$/Desktop/javascript-style-guide/.jscsrc" />
     <option name="nodeInterpreter" value="/usr/local/bin/node" />
     <option name="treatAllIssuesAsWarnings" value="true" />
-    <option name="pluginEnabled" value="true" />
     <option name="esprima" value="" />
   </component>
 </project>

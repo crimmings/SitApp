@@ -44,7 +44,7 @@ function fillTable() {
     var tableContent = '';
 
     // jQuery AJAX call for JSON
-    $.getJSON( '/users/babysitters', function( data ) {
+    $.getJSON( '/babysitters', function( data ) {
 
         //Stick babysitter array into a sitterList variable in the global object
         sitterListData = data;
@@ -59,6 +59,7 @@ function fillTable() {
             tableContent += '<td>' + this.phone + '</td>';
             tableContent += '<td><a href="#" class="linkemail" rel="' + this.email + '">' + this.email + '</a></td>';
             tableContent += '<td><a href="#" class="linkdeletesitter" rel="' + this._id + '">Delete</a>/<a href="#" class="linkupdatesitter" rel="' + this._id + '">Update</a></td>';
+            tableContent += '<td><input type="checkbox" class="checkbox" />&nbsp;</td>';
             tableContent += '</tr>';
 
         });
@@ -121,7 +122,7 @@ function addSitter(event){
         $.ajax({
             type: 'POST',
             data: newSitter,
-            url: '/users/addsitter',
+            url: '/addsitter',
             dataType: 'JSON'
         }).done(function (response) {
 
@@ -213,7 +214,7 @@ function updateSitter(event) {
         // do that AJAX thang
         $.ajax({
             type: 'PUT',
-            url: '/users/updatesitter/' + _id,
+            url: '/updatesitter/' + _id,
             data: updatedFields
         }).done(function (response) {
 
@@ -249,7 +250,7 @@ function deleteSitter(event) {
         // If they did, delete
         $.ajax({
             type: 'DELETE',
-            url: '/users/deletesitter/' + $(this).attr('rel')
+            url: '/deletesitter/' + $(this).attr('rel')
         }).done(function( response ) {
 
             // Check for a successful (blank) response

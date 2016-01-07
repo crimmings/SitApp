@@ -30,10 +30,26 @@ block content
           th Phone
           th Email
           th Delete / Update?
+          th Select
         tbody
+          button#sendRequest Send Request
+
     // SITTER LIST
 
-    //ADD SITTER
+    //REQUEST SITTER
+
+    h2 Request A Sitter
+    #requestSitter
+      form#request(action='/request', name='requestsitter', method='post')
+        fieldset
+          input#requestSitterEmail(type="text", name="email" placeholder="email")
+          textarea#requestSitterMessage(name="message" cols='40', rows="10", placeholder="message")
+          br
+          button#btnRequestSitter Request
+
+    // / REQUEST SITTER
+
+  //ADD SITTER
   #addSitterPanel
     h2 Add A Babysitter
     #addSitter
