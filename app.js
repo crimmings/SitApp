@@ -5,11 +5,24 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
+var jQuery = require('jquery');
 
 //Database
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/sitapp');
+var mongoose = require('mongoose');
+
+//DB Stuff
+var mongoURI = "mongodb://localhost:27017/eta_cats";
+var MongoDB = mongoose.connect(mongoURI).connection;
+
+MongoDB.once("open", function(err){
+  if(err){
+    console.log("ERROR: " + err);
+  }
+  console.log("Mongo Connection Open");
+});
 
 // Routes
 var routes = require('./routes/index');
@@ -20,11 +33,14 @@ var addsitter = require('./routes/addsitter');
 var updatesitter = require('./routes/updatesitter');
 var deletesitter = require('./routes/deletesitter');
 
+
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

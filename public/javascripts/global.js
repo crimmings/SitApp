@@ -6,9 +6,13 @@
 // sitterListData array for filling in info box
 var sitterListData = [];
 
+
 /*** DOM HANDLERS ***/
 
 $(document).ready(function() {
+
+    // Date Picker
+   // $( "#datepicker" ).datepicker();
 
     // Click link of babysitter name
     $('#sitterList table tbody').on('click', 'td a.linkshowsitter', showSitterInfo);
@@ -31,12 +35,68 @@ $(document).ready(function() {
     // Button click to update sitter information
     $('#btnUpdateSitter').on('click', updateSitter);
 
+    // Populate Request Who
+    $('#sitterList').on('click', '.linkshowsitter', function() {
+        var id = $(this).attr("id");
+        console.log("this is var id: " + id);
+        console.log("this is var id._id: " + id._id);
+        console.log("this is sitterListData.length: " + sitterListData.length);
+        console.log("this is sitterListData[3]._id: " + sitterListData[3]._id);
+        var i = 0;
+        while (i >= sitterListData.length) {
+            sitterListData.length --;
+            if (sitterListData[i]._id === id) {
+                console.log(sitterListData[i]);
+                console.log(sitterListData[i].email);
+            }
+        }
+    });
+
+        //console.log($(this).find(".linkemail"));
+        //var email = sitterListData[0].email;
+        //console.log(sitterListData[0].email); //
+        //console.log($(this).find('td .linkemail').val());
+
+        //$('input#requestSitterWho.requestwho').val($(this).find(".linkshowsitter").parent().next().next().val());
+        //$('input#requestSitterWho.requestwho').val(email);
+
+
+            //$('input#requestSitterWho.requestwho').val(linkshowsitterId);
+        //}
+
+// loop through to find element that mtaches var id.
+        // access email property of element
+        // then put that in .val
+        // reset val
+    //    console.log("it is clicked");
+         //console.log('#' + this._id);
+
+     //});
+
+
     // Function to fill table with sitters on page load
     fillTable();
 });
 
 
+
 /*** FUNCTIONS ***/
+
+// Grab email from db and put into request a sitter form
+function grabEmail() {
+    var email = '';
+    $.getJSON('/babysitters', function (data) {
+        sitterListData = data;
+
+        $.each(data, function () {
+            $email = this.email;
+            $id = this._id
+
+        });
+        $('input#requestSitterWho.requestwho').val($id);
+    });
+}
+
 
 // Fill table with data
 function fillTable() {
@@ -56,21 +116,21 @@ function fillTable() {
 
         // For each item in JSON, add a table row and cells to the content string
         $.each(data, function(){
-            tableContent += '<tr>';
-            tableContent += '<td><a href="#" class="linkshowsitter" rel="' + this.babysitter + '">' + this.babysitter + '</a></td>';
+            tableContent += '<tr></tr>';
+            tableContent += '<td><a href="#" class="linkshowsitter" id="' + this._id + '" rel="' + this.babysitter + '">' + this.babysitter + '</a></td>';
             tableContent += '<td>' + this.phone + '</td>';
-            tableContent += '<td><a href="#" class="linkemail" rel="' + this.email + '">' + this.email + '</a></td>';
-            tableContent += '<td><a href="#" class="linkdeletesitter" rel="' + this._id + '">Delete</a>/<a href="#" class="linkupdatesitter" rel="' + this._id + '">Update</a></td>';
+            tableContent += '<td class="linkemail"> ' + this.email + ' </td>';
+            tableContent += '<td><a href="#" class="linkdeletesitter" rel="' + this._id + '">Delete</a> / <a href="#" class="linkupdatesitter" rel="' + this._id + '">Update</a></td>';
             tableContent += '<td><input type="checkbox" class="checkbox" />&nbsp;</td>';
             tableContent += '</tr>';
 
         });
-
+        console.log(sitterListData);
+        // tableContent += '<td><a href="#" class="linkemail" rel="' + this.email + '">' + this.email + '</a></td>';
         // Inject the whole content string into existing table
         $('#sitterList table tbody').html(tableContent);
     });
-};
-
+}
 // Show Sitter Info in Info Panel
 function showSitterInfo(event) {
 
@@ -93,21 +153,45 @@ function showSitterInfo(event) {
     $('#sitterInfoEmail').text(thisSitterObject.email);
     //$('#userInfoLocation').text(thisUserObject.location); // add something else? drive? age?
 
-};
-
-
+}
 // Add sitter to database and table
 
 function addSitter(event){
 
     event.preventDefault();
 
+    /* MONGOOSE?
+    var sitterObject = {};
+    sitterObject.babysitter = $('#addSitter fieldset input#inputSitterName').val();
+    sitterObject.phone = $('#addSitter fieldset input#inputSitterPhone').val();
+    sitterObject.email = $('#addSitter fieldset input#inputSitterEmail').val();
+
+    $.ajax({
+        type: "POST",
+        data: sitterObject,
+        url: "/addsitter",
+        dataType: "JSON",
+        success: function(whatever){
+            console.log(whatever);
+            fillTable();
+            //$('#addSitter fieldset input').val('');
+
+        }
+
+
+    });
+
+
+
+};
+*/
+
     // basic validation -- increase errorCount variable if any fields are blank
 
     var errorCount = 0;
 
     $('#addSitter input').each(function(index, val){
-        if($(this).val() === ''){errorCount++;}
+       if($(this).val() === ''){errorCount++;}
     });
 
     //Check and make sure errorCount's still at zero
@@ -123,15 +207,15 @@ function addSitter(event){
 
         // Use AJAX to post the object to addSitter service
         $.ajax({
-            type: 'POST',
-            data: newSitter,
-            url: '/addsitter',
-            dataType: 'JSON'
+           type: 'POST',
+           data: newSitter,
+           url: '/addsitter',
+           dataType: 'JSON'
         }).done(function (response) {
-            console.log("This is response.msg: " + response.msg);
+           console.log("This is response.msg: " + response.msg);
 
             // Check for successful (empty) response -- clarify what response.msg is)
-            if (response.msg === '') {
+        if (response.msg === '') {
 
                 // Clear the form inputs
                 $('#addSitter fieldset input').val('');
@@ -148,12 +232,11 @@ function addSitter(event){
     }
     else {
         // if errorCount is more than 0, error out
-        alert("If you want some freedom, you'll need to fill out the form.");
+       alert("If you want some freedom, you'll need to fill out the form.");
         return false;
     }
 
-};
-
+}
 
 // put sitter info into the "update sitter panel"
 function changeSitterInfo(event){
@@ -181,9 +264,7 @@ console.log("updatesitter =" + JSON.stringify(thisSitterObject));
 
     // Put the id into the REL of tbe 'update sitter' block
     $('#updateSitter').attr('rel', thisSitterObject._id);
-};
-
-
+}
 // update Sitter information
 function updateSitter(event) {
     console.log("oh hi, i'm in ur update sitter function");
@@ -238,9 +319,7 @@ function updateSitter(event) {
         // if no to confirm, do nothing
         return false;
     }
-};
-
-
+}
 // Delete Sitter
 function deleteSitter(event) {
 
@@ -277,14 +356,13 @@ function deleteSitter(event) {
         // If they said no to the confirm, do nothing
         return false;
     }
-};
-
-
+}
 // Toggle addSitter and updateSitter panels
 
 function togglePanels(){
     $('#addSitterPanel').toggle();
     $('#updateSitterPanel').toggle();
-};
+}
 
 
+console.log(sitterListData);

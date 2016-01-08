@@ -26,11 +26,11 @@ block content
     #sitterList
       table
         thead
-          th Babysitter
+          th#sitterWho Babysitter
           th Phone
           th Email
           th Delete / Update?
-          th Select
+          th#sitterCheck Select
         tbody
          // button#sendRequest Send Request
 
@@ -42,10 +42,20 @@ block content
     #requestSitter
       form#request(action='/request', name='requestsitter', method='post')
         fieldset
-          input#requestSitterEmail(type="text", name="email" placeholder="email")
-          textarea#requestSitterMessage(name="message" cols='40', rows="10", placeholder="message")
+          input#requestSitterWho(type='text' name='who' class="requestwho" placeholder='Who?')
           br
-          button#btnRequestSitter Request
+          input#requestSitterWhen(type='datepicker' name='when' placeholder='When?')
+          br
+          input#requestSitterTimeStart(type='time' name='start' placeholder='Start Time?')
+          br
+          input#requestSitterTimeEnd(type='time' name='end' placeholder='End Time?')
+          br
+          input#requestSitterWhere(type='text' name='where' placeholder='Where?')
+          br
+          textarea#requestSitterNotes(name='message' cols='20' rows='5' placeholder='Notes?')
+          br
+          input(name='request', type='submit', value='Send', id='requet')
+          //button#btnRequestSitter Request Sitter
 
     // / REQUEST SITTER
 
@@ -55,7 +65,9 @@ block content
     #addSitter
         fieldset
           input#inputSitterName(type='text', placeholder='Babysitter')
+          br
           input#inputSitterPhone(type='text', placeholder='Phone')
+          br
           input#inputSitterEmail(type='text', placeholder='E-Mail')
           br
           button#btnAddSitter  Add Sitter
@@ -67,7 +79,9 @@ block content
     #updateSitter
       fieldset
         input#updateSitterName(type='text', placeholder='Babysitter')
+        br
         input#updateSitterPhone(type='text', placeholder='Phone')
+        br
         input#updateSitterEmail(type='text', placeholder='E-Mail')
         br
         button#btnUpdateSitter Add Sitter
