@@ -35,43 +35,39 @@ $(document).ready(function() {
     // Button click to update sitter information
     $('#btnUpdateSitter').on('click', updateSitter);
 
-    // Populate Request Who
+    // Populate Request Form Email By Clicking on Babysitter Name
     $('#sitterList').on('click', '.linkshowsitter', function() {
+        event.preventDefault();
         var id = $(this).attr("id");
         console.log("this is var id: " + id);
-        console.log("this is var id._id: " + id._id);
-        console.log("this is sitterListData.length: " + sitterListData.length);
-        console.log("this is sitterListData[3]._id: " + sitterListData[3]._id);
-        var i = 0;
-        while (i >= sitterListData.length) {
-            sitterListData.length --;
+        console.log("john _id: " + sitterListData[0]._id);
+        console.log("john email: " + sitterListData[0].email);
+        //console.log("this is sitterListData.length: " + sitterListData.length);
+        //console.log("this is sitterListData[3]._id: " + sitterListData[3]._id);
+        var i = sitterListData.length;
+        while (sitterListData.length > 0) {
+            i--;
             if (sitterListData[i]._id === id) {
-                console.log(sitterListData[i]);
-                console.log(sitterListData[i].email);
+                console.log("This is sitterListData[i]._id: " + sitterListData[i]._id);
+                console.log("This is the person you clicked on: " + sitterListData[i].babysitter);
+                console.log("This is the email you were looking for: " + sitterListData[i].email);
+                var email = sitterListData[i].email;
+                console.log(email);
+
+                $('input#requestSitterWho.requestwho').val(email);
             }
         }
+
     });
 
-        //console.log($(this).find(".linkemail"));
-        //var email = sitterListData[0].email;
-        //console.log(sitterListData[0].email); //
-        //console.log($(this).find('td .linkemail').val());
+    // this will add a comma $('input#requestSitterWho.requestwho').val(email + ', ');
 
-        //$('input#requestSitterWho.requestwho').val($(this).find(".linkshowsitter").parent().next().next().val());
-        //$('input#requestSitterWho.requestwho').val(email);
-
-
-            //$('input#requestSitterWho.requestwho').val(linkshowsitterId);
-        //}
 
 // loop through to find element that mtaches var id.
         // access email property of element
         // then put that in .val
         // reset val
-    //    console.log("it is clicked");
-         //console.log('#' + this._id);
 
-     //});
 
 
     // Function to fill table with sitters on page load
@@ -116,7 +112,7 @@ function fillTable() {
 
         // For each item in JSON, add a table row and cells to the content string
         $.each(data, function(){
-            tableContent += '<tr></tr>';
+            tableContent += '<tr>';
             tableContent += '<td><a href="#" class="linkshowsitter" id="' + this._id + '" rel="' + this.babysitter + '">' + this.babysitter + '</a></td>';
             tableContent += '<td>' + this.phone + '</td>';
             tableContent += '<td class="linkemail"> ' + this.email + ' </td>';
