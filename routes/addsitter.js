@@ -1,11 +1,11 @@
 /**
  * Created by crimmings on 1/6/16.
  */
+
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
-var mongoose = require('mongoose');
-var Babysitter = require('../models/sitters');
+var Babysitter = require('../models/schema');
 
 
 /*

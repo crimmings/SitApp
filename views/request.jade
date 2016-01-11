@@ -10,9 +10,17 @@ block content
 
 
 
+
     if(typeof msg !== 'undefined')
         if(!!err)
             div(class='msgbox err') #{msg}
         else
-            div(class='msgbox success') #{msg}
+            div(class='msgbox success')
+                h3= msg
+                h3= babysitters
+                h3= when
+                h3= time
+                h3= where
+                h3= details
+
 

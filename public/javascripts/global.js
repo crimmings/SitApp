@@ -60,15 +60,6 @@ $(document).ready(function() {
 
     });
 
-    // this will add a comma $('input#requestSitterWho.requestwho').val(email + ', ');
-
-
-// loop through to find element that mtaches var id.
-        // access email property of element
-        // then put that in .val
-        // reset val
-
-
 
     // Function to fill table with sitters on page load
     fillTable();
@@ -78,20 +69,8 @@ $(document).ready(function() {
 
 /*** FUNCTIONS ***/
 
-// Grab email from db and put into request a sitter form
-function grabEmail() {
-    var email = '';
-    $.getJSON('/babysitters', function (data) {
-        sitterListData = data;
+// popup test
 
-        $.each(data, function () {
-            $email = this.email;
-            $id = this._id
-
-        });
-        $('input#requestSitterWho.requestwho').val($id);
-    });
-}
 
 
 // Fill table with data
@@ -117,7 +96,7 @@ function fillTable() {
             tableContent += '<td>' + this.phone + '</td>';
             tableContent += '<td class="linkemail"> ' + this.email + ' </td>';
             tableContent += '<td><a href="#" class="linkdeletesitter" rel="' + this._id + '">Delete</a> / <a href="#" class="linkupdatesitter" rel="' + this._id + '">Update</a></td>';
-            tableContent += '<td><input type="checkbox" class="checkbox" />&nbsp;</td>';
+            //tableContent += '<td><input type="checkbox" class="checkbox" />&nbsp;</td>';
             tableContent += '</tr>';
 
         });
@@ -127,6 +106,8 @@ function fillTable() {
         $('#sitterList table tbody').html(tableContent);
     });
 }
+
+
 // Show Sitter Info in Info Panel
 function showSitterInfo(event) {
 
@@ -156,31 +137,6 @@ function addSitter(event){
 
     event.preventDefault();
 
-    /* MONGOOSE?
-    var sitterObject = {};
-    sitterObject.babysitter = $('#addSitter fieldset input#inputSitterName').val();
-    sitterObject.phone = $('#addSitter fieldset input#inputSitterPhone').val();
-    sitterObject.email = $('#addSitter fieldset input#inputSitterEmail').val();
-
-    $.ajax({
-        type: "POST",
-        data: sitterObject,
-        url: "/addsitter",
-        dataType: "JSON",
-        success: function(whatever){
-            console.log(whatever);
-            fillTable();
-            //$('#addSitter fieldset input').val('');
-
-        }
-
-
-    });
-
-
-
-};
-*/
 
     // basic validation -- increase errorCount variable if any fields are blank
 
@@ -359,6 +315,10 @@ function togglePanels(){
     $('#addSitterPanel').toggle();
     $('#updateSitterPanel').toggle();
 }
+
+// POP UP TEST
+
+
 
 
 console.log(sitterListData);
