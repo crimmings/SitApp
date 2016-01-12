@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
 var nodemailerWrap = require('nodemailer-wrapper');
 var jQuery = require('jquery');
+var fs = require('fs');
 
 
 //Database
@@ -23,9 +24,14 @@ var babysitters = require('./routes/babysitters');
 var addsitter = require('./routes/addsitter');
 var updatesitter = require('./routes/updatesitter');
 var deletesitter = require('./routes/deletesitter');
+var appointments = require('./routes/appointments');
+var deleteappointment = require('./routes/deleteappointment');
 
 
 var app = express();
+
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -56,6 +62,9 @@ app.use('/babysitters', babysitters);
 app.use('/addsitter', addsitter);
 app.use('/updatesitter', updatesitter);
 app.use('/deletesitter', deletesitter);
+app.use('/appointments', appointments);
+app.use('/deleteappointment', deleteappointment);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

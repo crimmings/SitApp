@@ -5,7 +5,7 @@
 
 // sitterListData array for filling in info box
 var sitterListData = [];
-
+var sitterRequestData = [];
 
 /*** DOM HANDLERS ***/
 
@@ -19,6 +19,9 @@ $(document).ready(function() {
 
     // Click link to delete babysitter
     $('#sitterList table tbody').on('click', 'td a.linkdeletesitter', deleteSitter);
+
+    // click link to delete appointment
+    $('#sitterRequestList table tbody').on('click', 'td a.deleterequestsitter', deleteAppointment);
 
     // Click link to update sitter
     $('#sitterList table tbody').on('click', 'td a.linkupdatesitter', changeSitterInfo);
@@ -57,6 +60,7 @@ $(document).ready(function() {
 
     // Function to fill table with sitters on page load
     fillTable();
+    fillAppointmentsTable();
 });
 
 
@@ -64,5 +68,3 @@ $(document).ready(function() {
 
 
 
-
-console.log(sitterListData);

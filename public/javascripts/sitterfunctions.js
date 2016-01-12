@@ -1,6 +1,7 @@
 /*** FUNCTIONS ***/
 
-// Fill table with data
+// *** FILL TABLE WITH DATA
+
 function fillTable() {
 
     // Empty content string
@@ -22,7 +23,8 @@ function fillTable() {
             tableContent += '<td><a href="#" class="linkshowsitter" id="' + this._id + '" rel="' + this.babysitter + '">' + this.babysitter + '</a></td>';
             tableContent += '<td>' + this.phone + '</td>';
             tableContent += '<td class="linkemail">' + this.email + '</td>';
-            tableContent += '<td><a href="#" class="linkdeletesitter" rel="' + this._id + '">Delete</a>/<a href="#" class="linkupdatesitter" rel="' + this._id + '">Update</a></td>';
+            tableContent += '<td><a href="#" class="linkupdatesitter" rel="' + this._id + '">Update</a></td>';
+            tableContent += '<td><a href="#" class="linkdeletesitter" rel="' + this._id + '">Delete</a></td>';
             tableContent += '</tr>';
 
         });
@@ -34,7 +36,8 @@ function fillTable() {
 }
 
 
-// Show Sitter Info in Info Panel
+// *** SHOW SITTER INFORMATION IN SIDE PANEL
+
 function showSitterInfo(event) {
 
     event.preventDefault();
@@ -57,7 +60,7 @@ function showSitterInfo(event) {
     //$('#userInfoLocation').text(thisUserObject.location); // add something else? drive? age?
 
 }
-// Add sitter to database and table
+// ** ADD NEW SITTER TO DATABASE AND TABLE
 
 function addSitter(event){
 
@@ -118,7 +121,8 @@ function addSitter(event){
 
 }
 
-// put sitter info into the "update sitter panel"
+// *** PUT UPDATED SITTER INFO INTO THE 'UPDATE SITTER PANEL'
+
 function changeSitterInfo(event){
 
     event.preventDefault();
@@ -145,7 +149,10 @@ function changeSitterInfo(event){
     // Put the id into the REL of tbe 'update sitter' block
     $('#updateSitter').attr('rel', thisSitterObject._id);
 }
-// update Sitter information
+
+
+// *** UPDATE SITTER INFORMATION
+
 function updateSitter(event) {
     console.log("oh hi, i'm in ur update sitter function");
 
@@ -203,7 +210,8 @@ function updateSitter(event) {
 }
 
 
-// Delete Sitter
+// *** DELETE SITTER
+
 function deleteSitter(event) {
 
     event.preventDefault();
@@ -242,11 +250,14 @@ function deleteSitter(event) {
         return false;
     }
 }
-// Toggle addSitter and updateSitter panels
+
+
+
+// *** TOGGLE ADD/UPDATE PANELS
 
 function togglePanels(){
     $('#addSitterPanel').toggle();
     $('#updateSitterPanel').toggle();
 }
 
-// POP UP TEST
+
