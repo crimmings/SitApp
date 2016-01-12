@@ -7,24 +7,13 @@ var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
 var nodemailerWrap = require('nodemailer-wrapper');
 var jQuery = require('jquery');
-//var popupS = require('popups');
+
 
 //Database
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/sitapp');
 var mongoose = require('mongoose');
-
-//DB Stuff
-//var mongoURI = "mongodb://localhost:27017/eta_cats";
-//var MongoDB = mongoose.connect(mongoURI).connection;
-
-//MongoDB.once("open", function(err){
- // if(err){
-   // console.log("ERROR: " + err);
- // }
-  //console.log("Mongo Connection Open");
-//});
 
 // Routes
 var routes = require('./routes/index');

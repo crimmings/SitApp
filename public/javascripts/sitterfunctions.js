@@ -1,77 +1,4 @@
-/**
- * Created by crimmings on 12/30/15.
- */
-
-
-// sitterListData array for filling in info box
-var sitterListData = [];
-
-
-/*** DOM HANDLERS ***/
-
-$(document).ready(function() {
-
-    // Date Picker
-   // $( "#datepicker" ).datepicker();
-
-    // Click link of babysitter name
-    $('#sitterList table tbody').on('click', 'td a.linkshowsitter', showSitterInfo);
-
-    // Button click to add babysitter
-    $('#btnAddSitter').on('click', addSitter);
-
-    // Click link to delete babysitter
-    $('#sitterList table tbody').on('click', 'td a.linkdeletesitter', deleteSitter);
-
-    // Click link to update sitter
-    $('#sitterList table tbody').on('click', 'td a.linkupdatesitter', changeSitterInfo);
-
-    // Button click to cancel update of sitter information
-    $('#btnCancelUpdateSitter').on('click', togglePanels);
-
-    // add class to update fields
-    $('#updateSitter input').on('change', function(){$(this).addClass('updated')});
-
-    // Button click to update sitter information
-    $('#btnUpdateSitter').on('click', updateSitter);
-
-    // Populate Request Form Email By Clicking on Babysitter Name
-    $('#sitterList').on('click', '.linkshowsitter', function() {
-        event.preventDefault();
-        var id = $(this).attr("id");
-        console.log("this is var id: " + id);
-        console.log("john _id: " + sitterListData[0]._id);
-        console.log("john email: " + sitterListData[0].email);
-        //console.log("this is sitterListData.length: " + sitterListData.length);
-        //console.log("this is sitterListData[3]._id: " + sitterListData[3]._id);
-        var i = sitterListData.length;
-        while (sitterListData.length > 0) {
-            i--;
-            if (sitterListData[i]._id === id) {
-                console.log("This is sitterListData[i]._id: " + sitterListData[i]._id);
-                console.log("This is the person you clicked on: " + sitterListData[i].babysitter);
-                console.log("This is the email you were looking for: " + sitterListData[i].email);
-                var email = sitterListData[i].email;
-                console.log(email);
-
-                $('input#requestSitterWho.requestwho').val(email);
-            }
-        }
-
-    });
-
-
-    // Function to fill table with sitters on page load
-    fillTable();
-});
-
-
-
 /*** FUNCTIONS ***/
-
-// popup test
-
-
 
 // Fill table with data
 function fillTable() {
@@ -87,16 +14,15 @@ function fillTable() {
         sitterListData = data;
 
         /* Sticking all of returned sitter data, from the database, into global variable so it can be accessed without
-        repeatedly hitting on database each time sitter name clicked in table.*/
+         repeatedly hitting on database each time sitter name clicked in table.*/
 
         // For each item in JSON, add a table row and cells to the content string
         $.each(data, function(){
             tableContent += '<tr>';
             tableContent += '<td><a href="#" class="linkshowsitter" id="' + this._id + '" rel="' + this.babysitter + '">' + this.babysitter + '</a></td>';
             tableContent += '<td>' + this.phone + '</td>';
-            tableContent += '<td class="linkemail"> ' + this.email + ' </td>';
-            tableContent += '<td><a href="#" class="linkdeletesitter" rel="' + this._id + '">Delete</a> / <a href="#" class="linkupdatesitter" rel="' + this._id + '">Update</a></td>';
-            //tableContent += '<td><input type="checkbox" class="checkbox" />&nbsp;</td>';
+            tableContent += '<td class="linkemail">' + this.email + '</td>';
+            tableContent += '<td><a href="#" class="linkdeletesitter" rel="' + this._id + '">Delete</a>/<a href="#" class="linkupdatesitter" rel="' + this._id + '">Update</a></td>';
             tableContent += '</tr>';
 
         });
@@ -143,7 +69,9 @@ function addSitter(event){
     var errorCount = 0;
 
     $('#addSitter input').each(function(index, val){
-       if($(this).val() === ''){errorCount++;}
+        if($(this).val() === ''){
+            errorCount++;
+        }
     });
 
     //Check and make sure errorCount's still at zero
@@ -159,15 +87,15 @@ function addSitter(event){
 
         // Use AJAX to post the object to addSitter service
         $.ajax({
-           type: 'POST',
-           data: newSitter,
-           url: '/addsitter',
-           dataType: 'JSON'
+            type: 'POST',
+            data: newSitter,
+            url: '/addsitter',
+            dataType: 'JSON'
         }).done(function (response) {
-           console.log("This is response.msg: " + response.msg);
+            console.log("This is response.msg: " + response.msg);
 
             // Check for successful (empty) response -- clarify what response.msg is)
-        if (response.msg === '') {
+            if (response.msg === '') {
 
                 // Clear the form inputs
                 $('#addSitter fieldset input').val('');
@@ -184,7 +112,7 @@ function addSitter(event){
     }
     else {
         // if errorCount is more than 0, error out
-       alert("If you want some freedom, you'll need to fill out the form.");
+        alert("If you want some freedom, you'll need to fill out the form.");
         return false;
     }
 
@@ -203,11 +131,11 @@ function changeSitterInfo(event){
     // Get index of object based on _id value
     var _id = $(this).attr('rel');
     var arrayPosition = sitterListData.map(function(arrayItem){ return arrayItem._id; }).indexOf(_id);
-console.log("this is JSON.stringify(arrayPosition) " + JSON.stringify(arrayPosition));
+    console.log("this is JSON.stringify(arrayPosition) " + JSON.stringify(arrayPosition));
 
     // Get Sitter Object
     var thisSitterObject = sitterListData[arrayPosition];
-console.log("updatesitter =" + JSON.stringify(thisSitterObject));
+    console.log("updatesitter =" + JSON.stringify(thisSitterObject));
 
     // Fill info box
     $('#updateSitterName').val(thisSitterObject.babysitter);
@@ -224,7 +152,8 @@ function updateSitter(event) {
     event.preventDefault();
 
     // confirm dialog
-    var confirmation = confirm('Are you sure you want to update this sitter?');
+    var confirmation = confirm("Is this information correct?");
+
 
     // check to make sure user confirmed
 
@@ -272,6 +201,8 @@ function updateSitter(event) {
         return false;
     }
 }
+
+
 // Delete Sitter
 function deleteSitter(event) {
 
@@ -279,6 +210,8 @@ function deleteSitter(event) {
 
     // Pop up a confirmation dialog
     var confirmation = confirm('Are you sure you want to delete this sitter?');
+
+    //
 
     // Check and make sure the sitter is confirmed
     if (confirmation === true) {
@@ -317,8 +250,3 @@ function togglePanels(){
 }
 
 // POP UP TEST
-
-
-
-
-console.log(sitterListData);

@@ -5,7 +5,7 @@
 var express = require('express');
 var router = express.Router();
 var nodemailer = require('nodemailer');
-var Babysitter = require('../models/schema');
+
 
 
 /*
@@ -24,8 +24,6 @@ router.post('/', function(req, res){
         );
     });
 
-
-
 });
 
 
@@ -34,19 +32,3 @@ router.post('/', function(req, res){
 module.exports = router;
 
 
-/* wouldbe for Mongoose
- var sitter = new Babysitter();
- sitter.babysitter = req.body.babysitter;
- sitter.phone = req.body.phone;
- sitter.email = req.body.email;
-
- sitter.save(function(err, data){
- if(err){
- console.log("Derp: ", err);
- }
- })
-
- console.log(req.body.babysitter);
-
-
- */

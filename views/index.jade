@@ -31,40 +31,12 @@ block content
           th Phone
           th Email
           th Delete / Update?
-          //th#sitterCheck Select
+
         tbody
-         // button#sendRequest Send Request
+
 
     // SITTER LIST
 
-    //REQUEST SITTER
-
-    h2 Request A Sitter
-    #requestSitter
-      form#request(action='/request', name='requestsitter', method='post')
-        fieldset
-          label Who?
-          input#requestSitterWho(type='text' name='who' class="requestwho" placeholder='Who?')
-          br
-          label Date?
-          input#requestSitterWhen(type='datepicker' name='when' placeholder='When?')
-          br
-          label Start Time?
-          input#requestSitterTimeStart(type='time' name='start' placeholder='Start Time?')
-          br
-          label End Time?
-          input#requestSitterTimeEnd(type='time' name='end' placeholder='End Time?')
-          br
-          label Where?
-          input#requestSitterWhere(type='text' name='where' placeholder='Where?')
-          br
-          label Message?
-          textarea#requestSitterNotes(name='message' cols='20' rows='5' placeholder='Notes?')
-          br
-          input(name='request', type='submit', value='Send', id='requestinput')
-          //button#btnRequestSitter Request Sitter
-
-    // / REQUEST SITTER
 
 
 
@@ -73,14 +45,14 @@ block content
   #addSitterPanel
     h2 Add A Babysitter
     #addSitter
-        fieldset
-          input#inputSitterName(type='text', placeholder='Babysitter')
-          br
-          input#inputSitterPhone(type='text', placeholder='Phone')
-          br
-          input#inputSitterEmail(type='text', placeholder='E-Mail')
-          br
-          button#btnAddSitter  Add Sitter
+      fieldset
+        input#inputSitterName(type='text', placeholder='Babysitter')
+        br
+        input#inputSitterPhone(type='text', placeholder='Phone')
+        br
+        input#inputSitterEmail(type='text', placeholder='email')
+        br
+        button#btnAddSitter  Add Sitter
     // /ADD SITTER
 
   //UPDATE SITTER
@@ -92,25 +64,11 @@ block content
         br
         input#updateSitterPhone(type='text', placeholder='Phone')
         br
-        input#updateSitterEmail(type='text', placeholder='E-Mail')
+        input#updateSitterEmail(type='text', placeholder='email')
         br
-        button#btnUpdateSitter Add Sitter
+        button#btnUpdateSitter Update Sitter
         button#btnCancelUpdateSitter Cancel
     // /UPDATE SITTER
 
-  .messagepop.pop
-    form#new_message(method='post', action='/messages')
-      p
-        label(for='email') Your email or name
-        input#email(type='text', size='30', name='email')
-      p
-        label(for='body') Message
-        textarea#body(rows='6', name='body', cols='35')
-      p
-        input#message_submit(type='submit', value='Send Message', name='commit')
-        |  or
-        a.close(href='/') Cancel
-  a#contact(href='/contact') Contact Us
 
   // WRAPPER
-
