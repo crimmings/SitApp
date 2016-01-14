@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":1,"key":{"_id":1},"name":"_id_","ns":"nodemailerdb.emails"},{"v":1,"key":{"msgid":1},"name":"msgid_1","ns":"nodemailerdb.emails","background":true},{"v":1,"key":{"thread":1},"name":"thread_1","ns":"nodemailerdb.emails","background":true}]}
