@@ -21,6 +21,7 @@ function fillAppointmentsTable() {
         // For each item in JSON, add a table row and cells to the content string
         $.each(data, function(){
             tableContent += '<tr>';
+            tableContent += '<td class="requesttimestampsitter">' + this.timeField + '</td>';
             tableContent += '<td class="requestshowsitter">' + this.who + '</td>';
             tableContent += '<td class="requestwhensitter">' + this.when + '</td>';
             tableContent += '<td class="requesttimesitter">' + this.start + ' to ' + this.end + '</td>';
@@ -28,13 +29,11 @@ function fillAppointmentsTable() {
             tableContent += '<td class="requestmessagesitter">' + this.message + '</td>';
             tableContent += '<td><a href="#" class="deleterequestsitter" rel="' + this._id + '">Delete</a></td>';
             tableContent += '<td><select name="Availability"><option value="None" selected></option><option value="Yes">Yes</option><option value="No">No</option><option value="Maybe">Maybe</option></td>';
-            //tableContent += '<td><input type="checkbox" class="requestyessitter"></td>'
-            //tableContent += '<td><input type="checkbox" class="requestnositter"></td>'
-            // tableContent += '<td><input type="checkbox" class="requestmaybesitter"></td>'
+            //tableContent += '<td><a href="#" class="confirmsitterrequest" rel="' + this.who + '">Confirm</a></td>';
             tableContent += '</tr>';
 
 
-
+            //table data drafts
             //tableContent += '<tr>';
             //tableContent += '<td><a href="#" class="linkshowsitter" id="' + this._id + '" rel="' + this.babysitter + '">' + this.babysitter + '</a></td>';
             //tableContent += '<td>' + this.phone + '</td>';
@@ -44,11 +43,11 @@ function fillAppointmentsTable() {
 
         });
         console.log(sitterRequestData);
-        // tableContent += '<td><a href="#" class="linkemail" rel="' + this.email + '">' + this.email + '</a></td>';
+
         // Inject the whole content string into existing table
         $('#sitterRequestList table tbody').html(tableContent);
     });
-}
+} // end of fill Appointments table function
 
 // *** DELETE SITTER
 

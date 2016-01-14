@@ -5,9 +5,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
-var nodemailerWrap = require('nodemailer-wrapper');
-var jQuery = require('jquery');
+var jquery = require('jquery');
 var fs = require('fs');
+var client = require('twilio')('AC2922b83396db0e8cac649fd001a6e5f5','30baba464da647a22ad211569d9faf25');
 
 
 //Database
@@ -38,6 +38,18 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.get('/testtwilio', function(req,res){
+  client.sendMessage({
+    to: '+16125012030',
+    from: '+17639511945',
+    body: "twilio test"
+  }, function(err, data){
+    if(err)
+      console.log(err);
+    console.log(data);
+  });
+});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));

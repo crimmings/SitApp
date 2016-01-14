@@ -35,6 +35,7 @@ $(document).ready(function() {
     // Button click to update sitter information
     $('#btnUpdateSitter').on('click', updateSitter);
 
+
     // Populate Request Form Email By Clicking on Babysitter Name
 
         $('#sitterList').on('click', '.linkshowsitter', function() {
@@ -46,17 +47,31 @@ $(document).ready(function() {
             console.log("this is sitterListData.length: " + sitterListData.length);
             console.log("this is sitterListData[0]._id: " + sitterListData[0]._id);
             var sitterEmail = '';
+            var sitterName = '';
             for (var i = 0; i < sitterListData.length; i++) {
                 if (sitterListData[i]._id === id) {
                     sitterEmail = sitterListData[i].email;
+                    sitterName = sitterListData[i].babysitter;
                     $('input#requestSitterWho.requestwho').val(sitterEmail);
+                    $('input#requestSitterName.requestname').val(sitterName);
                     console.log(sitterEmail);
                 }
 
             }
             popup(sitterEmail);
-            //pass email to popup
-        });
+
+        }); // end of request form handler
+
+
+
+   /**  Draft of similar to handler immediately above, intended to autopopulate confirmation email form
+    *  $('#sitterRequestList').on('click','.confirmsitterrequest', function(){
+   *
+        event.preventDefault();
+        var id =
+
+    })//end of jquery function
+*/
 
     // Function to fill table with sitters on page load
     fillTable();

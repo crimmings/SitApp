@@ -21,15 +21,16 @@ function fillTable() {
         $.each(data, function(){
             tableContent += '<tr>';
             tableContent += '<td><a href="#" class="linkshowsitter" id="' + this._id + '" rel="' + this.babysitter + '">' + this.babysitter + '</a></td>';
-            tableContent += '<td>' + this.phone + '</td>';
-            tableContent += '<td class="linkemail">' + this.email + '</td>';
+            // took out rows below to streamline table (added to sitter info box on sidebar when name clicked anyway)
+            //tableContent += '<td>' + this.phone + '</td>';
+            //tableContent += '<td class="linkemail">' + this.email + '</td>';
             tableContent += '<td><a href="#" class="linkupdatesitter" rel="' + this._id + '">Update</a></td>';
             tableContent += '<td><a href="#" class="linkdeletesitter" rel="' + this._id + '">Delete</a></td>';
             tableContent += '</tr>';
 
         });
         console.log(sitterListData);
-        // tableContent += '<td><a href="#" class="linkemail" rel="' + this.email + '">' + this.email + '</a></td>';
+
         // Inject the whole content string into existing table
         $('#sitterList table tbody').html(tableContent);
     });
