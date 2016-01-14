@@ -13,7 +13,7 @@ var router = express.Router();
 // doing an HTTP GET to /users/babysitters will return JSON listing all of the sitters in the db
 router.get('/', function(req, res) {
     var db = req.db;
-    var collection = db.get('sitterrequests');
+    var collection = db.get('sitterrequests'); //sitterrequests
     collection.find({}, {}, function (e, docs) {
         res.json(docs);
     });

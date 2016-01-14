@@ -34,11 +34,24 @@ block content
           th Where
           th Message
           th Delete
-          th Availability
 
         tbody
 
           // /REQUEST LIST
+
+
+    // RESPONSE LIST
+    h2 Responses
+    #sitterResponseList
+      table
+        thead
+          th From
+          th Response
+
+        tbody
+
+    // / RESPONSE LIST
+
 
 
     //SITTER LIST
@@ -65,9 +78,15 @@ block content
     h2 Add A Babysitter
     #addSitter
       fieldset
+        label Name
+        br
         input#inputSitterName(type='text', placeholder='Babysitter')
         br
-        input#inputSitterPhone(type='text', placeholder='Phone')
+        label Phone
+        br
+        input#inputSitterPhone(type='text', placeholder='1 + area code no dashes')
+        br
+        Label E-Mail
         br
         input#inputSitterEmail(type='text', placeholder='email')
         br

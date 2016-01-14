@@ -29,16 +29,3 @@ function popup(sitterEmail) {
     $('input#requestSitterWho.requestwho').val(sitterEmail);
 
 }
-/** Draft of confirm popup form
- *
-function popupConfirm(){
-    popupS.modal({
-        content: '<div class="sitterconfirm">' + '<h2>Confirm Sitter</h2>' +
-            '<form class="confirm" action="/confirm" name="confirmsitter" method="post"><fieldset>' +
-            '<label>'Name'</lablel><input class="confirmsittername" type="text" name="who" id="confirmwho" placeholder="Name"><br />' +
-            '<label>'Message'</label><textarea class="confirmsittermessage" name="message" cols="15" rows="5" placeholder="Notes"</br />' +
-            '<input type="hidden" name="timeField">' +
-            '<input type="submit" onclick="this.form.timeField.value=getTimeStamp()" name="confirm" value="Send">'
-    }) // end of confirm form
-    */
-

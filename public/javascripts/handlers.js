@@ -6,6 +6,7 @@
 // sitterListData array for filling in info box
 var sitterListData = [];
 var sitterRequestData = [];
+var sitterResponseData = [];
 
 /*** DOM HANDLERS ***/
 
@@ -22,6 +23,9 @@ $(document).ready(function() {
 
     // click link to delete appointment
     $('#sitterRequestList table tbody').on('click', 'td a.deleterequestsitter', deleteAppointment);
+
+    // click link to delete sitter response
+    $('#sitterResponseList table tbody').on('click', 'td a.deleteresponsesitter', deleteResponse);
 
     // Click link to update sitter
     $('#sitterList table tbody').on('click', 'td a.linkupdatesitter', changeSitterInfo);
@@ -48,17 +52,18 @@ $(document).ready(function() {
             console.log("this is sitterListData[0]._id: " + sitterListData[0]._id);
             var sitterEmail = '';
             var sitterName = '';
+            var sitterPhone = '';
             for (var i = 0; i < sitterListData.length; i++) {
                 if (sitterListData[i]._id === id) {
                     sitterEmail = sitterListData[i].email;
                     sitterName = sitterListData[i].babysitter;
-                    $('input#requestSitterWho.requestwho').val(sitterEmail);
-                    $('input#requestSitterName.requestname').val(sitterName);
-                    console.log(sitterEmail);
+                    sitterPhone = sitterListData[i].phone;
+                    $('input#requestSitterWho.requestwho').val(sitterPhone);
+                    console.log(sitterPhone);
                 }
 
             }
-            popup(sitterEmail);
+            popup(sitterPhone);
 
         }); // end of request form handler
 
@@ -76,6 +81,7 @@ $(document).ready(function() {
     // Function to fill table with sitters on page load
     fillTable();
     fillAppointmentsTable();
+    fillResponseTable();
 });
 
 

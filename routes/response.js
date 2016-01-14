@@ -1,0 +1,36 @@
+/**
+ * Created by crimmings on 1/14/16.
+ */
+
+
+var express = require('express');
+var router = express.Router();
+
+
+/*
+ * GET appointment requests list
+ */
+
+
+router.get('/', function(req, res) {
+    console.log('confirm get request at /response');
+    console.log(req.query.Body);
+    console.log(req.query.From);
+
+    var db = req.db;
+    var collection = db.get('sitterconfirmation');
+
+    collection.insert(req.query, function (err, result) {
+        console.log(req.query);
+    }); //
+}); //router.get end
+
+
+
+ //router.get end
+
+module.exports = router;
+
+
+//collection.insert(req.body, function (err, result) {
+  //  console.log(req.body);

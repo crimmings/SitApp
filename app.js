@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var nodemailer = require('nodemailer');
 var jquery = require('jquery');
 var fs = require('fs');
-var client = require('twilio')('AC2922b83396db0e8cac649fd001a6e5f5','30baba464da647a22ad211569d9faf25');
+var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 
 //Database
@@ -26,12 +26,12 @@ var updatesitter = require('./routes/updatesitter');
 var deletesitter = require('./routes/deletesitter');
 var appointments = require('./routes/appointments');
 var deleteappointment = require('./routes/deleteappointment');
-
+var testtwilio = require('./routes/testtwilio');
+var response = require('./routes/response');
+var responsetable = require('./routes/responsetable');
+var deleteresponse = require('./routes/deleteresponse');
 
 var app = express();
-
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -41,10 +41,34 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.get('/testtwilio', function(req,res){
   client.sendMessage({
-    to: '+16125012030',
-    from: '+17639511945',
+    to: process.env.MY_CELL,
+    from: process.env.TWILIO_NUMBER,
     body: "twilio test"
   }, function(err, data){
+    if(err)
+      console.log(err);
+    console.log(data);
+  });
+});
+
+app.get('/testtwilio/yes', function(req,res){
+  client.sendMessage({
+    to: process.env.MY_CELL,
+    from: process.env.TWILIO_NUMBER,
+    body: "YES"
+  }, function(err,data){
+    if(err)
+      console.log(err);
+    console.log(data);
+  });
+});
+
+app.get('/testtwilio/no', function(req,res){
+  client.sendMessage({
+    to: process.env.MY_CELL,
+    from: process.env.TWILIO_NUMBER,
+    body: "NO"
+  }, function(err,data){
     if(err)
       console.log(err);
     console.log(data);
@@ -76,6 +100,10 @@ app.use('/updatesitter', updatesitter);
 app.use('/deletesitter', deletesitter);
 app.use('/appointments', appointments);
 app.use('/deleteappointment', deleteappointment);
+app.use('/testtwilio', testtwilio);
+app.use('/response', response);
+app.use('/responsetable', responsetable);
+app.use('/deleteresponse', deleteresponse);
 
 
 // catch 404 and forward to error handler
