@@ -16,19 +16,20 @@ router.get('/', function(req, res){
 //POST
 router.post('/', function (req, res) {
 
-    console.log('My Name is Cornholio!');
+    console.log('My Name is Corntwilio!');
 
 
     client.sendMessage({
         to: req.body.who,
-        from: '+17639511945',
+        from: process.env.TWILIO_NUMBER,
         body: "Hello! We need a sitter on " + req.body.when + " from " +
         req.body.start + " to " + req.body.end + " at " + req.body.where
-        + ". Please respond Yes, No, or Maybe if you are free. (Fyi, this is an automated text)."
+        + ". Please respond Yes, No, or Maybe if you are free. (Fyi, this is an automated text from the Crimmings)."
     }, function (err, data) {
         if (err) {
             console.log(err);
         }
+        console.log("req.body.name: " + req.body.name);
         console.log(data)
     });
 

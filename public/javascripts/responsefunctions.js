@@ -49,7 +49,8 @@ function fillResponseTable() {
 
         // Inject the whole content string into existing table
         $('#sitterResponseList table tbody').html(tableContent);
-    });
+    });//end of getjson
+    setTimeout(fillResponseTable,5000);
 } // end of fill Appointments table function
 
 // *** DELETE SITTER
@@ -59,7 +60,7 @@ function deleteResponse(event) {
     event.preventDefault();
 
     // Pop up a confirmation dialog
-    var confirmation = confirm('Are you sure you want to delete this response?');
+    var confirmation = confim('Are you sure you want to delete this response?');
 
     //
 
@@ -97,3 +98,6 @@ function deleteResponse(event) {
         return false;
     }
 }
+
+// set interval and clear
+

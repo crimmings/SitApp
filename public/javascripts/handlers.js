@@ -59,24 +59,15 @@ $(document).ready(function() {
                     sitterName = sitterListData[i].babysitter;
                     sitterPhone = sitterListData[i].phone;
                     $('input#requestSitterWho.requestwho').val(sitterPhone);
+                    $('input#requestSitterName.requestname').val(sitterName);
                     console.log(sitterPhone);
+                    console.log(sitterName);
                 }
 
             }
-            popup(sitterPhone);
+            popup(sitterPhone, sitterName);
 
         }); // end of request form handler
-
-
-
-   /**  Draft of similar to handler immediately above, intended to autopopulate confirmation email form
-    *  $('#sitterRequestList').on('click','.confirmsitterrequest', function(){
-   *
-        event.preventDefault();
-        var id =
-
-    })//end of jquery function
-*/
 
     // Function to fill table with sitters on page load
     fillTable();

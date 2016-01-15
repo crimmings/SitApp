@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jquery = require('jquery');
 var fs = require('fs');
-var client = require('twilio')('AC2922b83396db0e8cac649fd001a6e5f5','30baba464da647a22ad211569d9faf25');
-//var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
 
 
 //Database

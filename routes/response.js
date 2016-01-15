@@ -16,6 +16,7 @@ router.get('/', function(req, res) {
     console.log('confirm get request at /response');
     console.log(req.query.Body);
     console.log(req.query.From);
+    console.log(req.query.DateSent);
 
     var db = req.db;
     var collection = db.get('sitterconfirmation');
@@ -33,4 +34,4 @@ module.exports = router;
 
 
 //collection.insert(req.body, function (err, result) {
-  //  console.log(req.body);
+//  console.log(req.body);

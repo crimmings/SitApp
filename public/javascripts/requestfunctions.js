@@ -21,7 +21,7 @@ function fillAppointmentsTable() {
         $.each(data, function(){
             tableContent += '<tr>';
             tableContent += '<td class="requesttimestampsitter">' + this.timeField + '</td>';
-            tableContent += '<td class="requestshowsitter">' + this.who + '</td>';
+            tableContent += '<td class="requestshowsitter">' + this.name + '</td>';
             tableContent += '<td class="requestwhensitter">' + this.when + '</td>';
             tableContent += '<td class="requesttimesitter">' + this.start + ' to ' + this.end + '</td>';
             tableContent += '<td class="requestwheresitter">' + this.where + '</td>';
@@ -46,6 +46,7 @@ function fillAppointmentsTable() {
         // Inject the whole content string into existing table
         $('#sitterRequestList table tbody').html(tableContent);
     });
+    setTimeout(fillAppointmentsTable,5000);
 } // end of fill Appointments table function
 
 // *** DELETE SITTER
