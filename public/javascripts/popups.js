@@ -1,9 +1,19 @@
+/** Function to create Time Stamp for Request Submission
+ *
+ * @returns {string}
+ */
+
 function getTimeStamp(){
     var now = new Date();
     return ((now.getMonth() + 1) + '/' + (now.getDate()) + '/' + now.getFullYear() + " " + now.getHours() + ':' + ((now.getMinutes() < 10) ? ("0" + now.getMinutes()) : (now.getMinutes())));
 }
 
 
+/** Function to create pop up sitter request form
+ *
+ * @param sitterEmail
+ * @param sitterName
+ */
 
 function popup(sitterEmail, sitterName) {
 
@@ -30,4 +40,4 @@ function popup(sitterEmail, sitterName) {
     $('input#requestSitterName.requestname').val(sitterName);
 
 
-}
+};

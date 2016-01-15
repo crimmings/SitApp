@@ -1,6 +1,6 @@
-/*** FUNCTIONS ***/
-
-// *** FILL TABLE WITH DATA
+/** Function to fill table with babysitter information on page load
+ *
+ */
 
 function fillTable() {
 
@@ -11,23 +11,20 @@ function fillTable() {
     $.getJSON( '/babysitters', function( data ) {
 
         console.log("sitterListData: " + sitterListData);
+
         //Stick babysitter array into a sitterList variable in the global object
         sitterListData = data;
 
-        /* Sticking all of returned sitter data, from the database, into global variable so it can be accessed without
-         repeatedly hitting on database each time sitter name clicked in table.*/
 
         // For each item in JSON, add a table row and cells to the content string
         $.each(data, function(){
             tableContent += '<tr>';
             tableContent += '<td><a href="#" class="linkshowsitter" id="' + this._id + '" rel="' + this.babysitter + '">' + this.babysitter + '</a></td>';
-            // took out rows below to streamline table (added to sitter info box on sidebar when name clicked anyway)
             //tableContent += '<td>' + this.phone + '</td>';
             //tableContent += '<td class="linkemail">' + this.email + '</td>';
             tableContent += '<td><a href="#" class="linkupdatesitter" rel="' + this._id + '">Update</a></td>';
             tableContent += '<td><a href="#" class="linkdeletesitter" rel="' + this._id + '">Delete</a></td>';
             tableContent += '</tr>';
-
         });
         console.log(sitterListData);
 
@@ -37,7 +34,10 @@ function fillTable() {
 }
 
 
-// *** SHOW SITTER INFORMATION IN SIDE PANEL
+/** Function to show sitter information in side panel
+ *
+ * @param event
+ */
 
 function showSitterInfo(event) {
 
@@ -58,17 +58,20 @@ function showSitterInfo(event) {
     $('#sitterInfoName').text(thisSitterObject.babysitter);
     $('#sitterInfoPhone').text(thisSitterObject.phone);
     $('#sitterInfoEmail').text(thisSitterObject.email);
-    //$('#userInfoLocation').text(thisUserObject.location); // add something else? drive? age?
 
 }
-// ** ADD NEW SITTER TO DATABASE AND TABLE
+
+/** Function to add new babysitter
+ *
+ * @param event
+ * @returns {boolean}
+ */
 
 function addSitter(event){
 
     event.preventDefault();
 
-
-    // basic validation -- increase errorCount variable if any fields are blank
+    // validation -- increase errorCount variable if any fields are blank
 
     var errorCount = 0;
 
@@ -78,7 +81,7 @@ function addSitter(event){
         }
     });
 
-    //Check and make sure errorCount's still at zero
+    //Check and make sure errorCount at zero
 
     if(errorCount === 0) {
 
@@ -122,7 +125,10 @@ function addSitter(event){
 
 }
 
-// *** PUT UPDATED SITTER INFO INTO THE 'UPDATE SITTER PANEL'
+/** Function to change sitter information on update
+ *
+ * @param event
+ */
 
 function changeSitterInfo(event){
 
@@ -152,7 +158,11 @@ function changeSitterInfo(event){
 }
 
 
-// *** UPDATE SITTER INFORMATION
+/** Function to update sitter information
+ *
+ * @param event
+ * @returns {boolean}
+ */
 
 function updateSitter(event) {
     console.log("oh hi, i'm in ur update sitter function");
@@ -162,13 +172,18 @@ function updateSitter(event) {
     // confirm dialog
     var confirmation = confirm("Is this information correct?");
 
+    // check confirmation
 
-    // check to make sure user confirmed
+    if (confirmation === false) {
 
-    if (confirmation === true) {
+        //if no to confirm, do nothing
+        return false;
+
+    } else {
+
         // if confirmed do update
 
-        // set _id of sitter to be update (look into this syntax)
+        // set _id of sitter to be updated (look into this syntax)
         var _id = $(this).parentsUntil('div').parent().attr('rel');
         console.log("Sitter ID = "+ _id);
 
@@ -203,15 +218,16 @@ function updateSitter(event) {
             // Update the table
             fillTable();
         });
-    }
-    else {
-        // if no to confirm, do nothing
-        return false;
-    }
+    };
+
 }
 
 
-// *** DELETE SITTER
+/** Function to delete babysitter
+ *
+ * @param event
+ * @returns {boolean}
+ */
 
 function deleteSitter(event) {
 
@@ -220,10 +236,14 @@ function deleteSitter(event) {
     // Pop up a confirmation dialog
     var confirmation = confirm('Are you sure you want to delete this sitter?');
 
-    //
 
     // Check and make sure the sitter is confirmed
-    if (confirmation === true) {
+    if (confirmation === false) {
+
+        // If they said no to the confirm, do nothing
+        return false;
+
+    } else {
 
         // If they did, delete and do that Ajax thang
         $.ajax({
@@ -244,17 +264,13 @@ function deleteSitter(event) {
 
         });
 
-    }
-    else {
-
-        // If they said no to the confirm, do nothing
-        return false;
-    }
-}
+    };
+};
 
 
-
-// *** TOGGLE ADD/UPDATE PANELS
+/** Function to toggle sitter information panels
+ *
+ */
 
 function togglePanels(){
     $('#addSitterPanel').toggle();
