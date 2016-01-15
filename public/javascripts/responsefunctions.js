@@ -66,6 +66,10 @@ function deleteResponse(event) {
     // Check and make sure the sitter is confirmed
     if (confirmation === true) {
 
+        //false first
+
+
+
         // If they did, delete and do that Ajax thang
         $.ajax({
             type: 'DELETE',
