@@ -5,10 +5,8 @@
 var express = require('express');
 var router = express.Router();
 
-
-
-/*
- * DELETE to response
+/**
+ * DELETE responses from sitterconfirmation collection
  */
 
 router.delete('/:id', function(req, res){

@@ -6,7 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jquery = require('jquery');
 var fs = require('fs');
-var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID, process.env.TWILIO_AUTH_TOKEN);
+var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID,proces.env.TWILIO_AUTH_TOKEN);
+//var bootstrap = require('bootstrap');
 
 
 //Database
@@ -29,6 +30,8 @@ var testtwilio = require('./routes/testtwilio');
 var response = require('./routes/response');
 var responsetable = require('./routes/responsetable');
 var deleteresponse = require('./routes/deleteresponse');
+var confirm = require('./routes/confirm');
+var About = require('./routes/about');
 
 var app = express();
 
@@ -103,6 +106,8 @@ app.use('/testtwilio', testtwilio);
 app.use('/response', response);
 app.use('/responsetable', responsetable);
 app.use('/deleteresponse', deleteresponse);
+app.use('/confirm', confirm);
+app.use('/about', About);
 
 
 // catch 404 and forward to error handler

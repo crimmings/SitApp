@@ -6,10 +6,8 @@ var express = require('express');
 var router = express.Router();
 
 
-
-
-/*
- * DELETE to deletesitter
+/**
+ * DELETE babysitter from sitterlist collection
  */
 
 router.delete('/:id', function(req, res){

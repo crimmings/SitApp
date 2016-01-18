@@ -5,10 +5,8 @@
 var express = require('express');
 var router = express.Router();
 
-
-
-/*
- * DELETE to appointment
+/**
+ * DELETE existing requests from sitterrequests collection
  */
 
 router.delete('/:id', function(req, res){

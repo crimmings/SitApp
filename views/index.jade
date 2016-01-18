@@ -1,29 +1,72 @@
 extends layout
 
+
 block content
-  h1= title
-  p Welcome to SIT: Take My Kids
+
+
+  header
+    h1= title
+    h3= subtitle
+
 
   //WRAPPER
   #wrapper
 
-    //SITTER INFO
-    #sitterInfo
-      h2 Babysitter Info
-      p
-        strong Name:
-          <span id='sitterInfoName'></span>
-        br
-        strong Phone:
-          <span id='sitterInfoPhone'></span>
-        br
-        strong E-Mail:
-          <span id='sitterInfoEmail'></span>
-        br
-    // /SITTER INFO
+    //ADD SITTER
+
+    #addSitterPanel
+      h2 Add A Babysitter
+      p#addtext Enter a new babysitter's information to add them to your network.
+        #addSitter
+          fieldset
+            label Name
+            input#inputSitterName(type='text', placeholder='Babysitter')
+            label Phone
+            input#inputSitterPhone(type='text', placeholder='1 + area code no dashes')
+            label E-Mail
+            input#inputSitterEmail(type='text', placeholder='E-mail')
+            button#btnAddSitter  Add Sitter
+        // /ADD SITTER
+
+    //UPDATE SITTER
+    #updateSitterPanel
+      h2 Update A Babysitter
+      p#updatetext They're not avoiding you, they just changed their information. Update it here.
+        #updateSitter
+          fieldset
+            label Name
+            input#updateSitterName(type='text', placeholder='Babysitter')
+            label Phone
+            input#updateSitterPhone(type='text', placeholder='Phone')
+            label E-Mail
+            input#updateSitterEmail(type='text', placeholder='email')
+            button#btnUpdateSitter Update Sitter
+            button#btnCancelUpdateSitter Cancel
+        // /UPDATE SITTER
+
+
+
+    //SITTER LIST
+    h2 Babysitters
+    p#babysitterstext Your reinforcements. Click a name to send a request via text. Update and delete as necessary.
+    #sitterList
+      table
+        thead
+          th#sitterWho Babysitter
+          th Phone
+          th Email
+          th Update
+          th Delete
+
+        tbody
+
+
+        // SITTER LIST
+
 
     //REQUEST LIST
     h2 Requests
+    p#requeststext Look at you! So busy. Remember to delete requests when they're filled.
     #sitterRequestList
       table
         thead
@@ -31,22 +74,23 @@ block content
           th Babysitter
           th Date Needed
           th Time
-          th Where
+          //th Where
           th Message
           th Delete
 
         tbody
 
           // /REQUEST LIST
-
-
     // RESPONSE LIST
     h2 Responses
+    p#responsetext Keep track of who can help. Click decline or confirm to do so via text. Delete when done.
     #sitterResponseList
       table
         thead
           th From
           th Response
+          th Decline
+          th Confirm
           th Delete
 
         tbody
@@ -54,60 +98,11 @@ block content
     // / RESPONSE LIST
 
 
-
-    //SITTER LIST
-    h2 Babysitters
-    #sitterList
-      table
-        thead
-          th#sitterWho Babysitter
-          //th Phone
-          //th Email
-          th Update
-          th Delete
-
-        tbody
-
-
-    // SITTER LIST
-
-
-
-
-  //ADD SITTER
-  #addSitterPanel
-    h2 Add A Babysitter
-    #addSitter
-      fieldset
-        label Name
-        br
-        input#inputSitterName(type='text', placeholder='Babysitter')
-        br
-        label Phone
-        br
-        input#inputSitterPhone(type='text', placeholder='1 + area code no dashes')
-        br
-        Label E-Mail
-        br
-        input#inputSitterEmail(type='text', placeholder='email')
-        br
-        button#btnAddSitter  Add Sitter
-    // /ADD SITTER
-
-  //UPDATE SITTER
-  #updateSitterPanel
-    h2 Update A Babysitter
-    #updateSitter
-      fieldset
-        input#updateSitterName(type='text', placeholder='Babysitter')
-        br
-        input#updateSitterPhone(type='text', placeholder='Phone')
-        br
-        input#updateSitterEmail(type='text', placeholder='email')
-        br
-        button#btnUpdateSitter Update Sitter
-        button#btnCancelUpdateSitter Cancel
-    // /UPDATE SITTER
-
-
   // WRAPPER
+  footer
+    span
+      a(href='/about') About SIT
+    br
+    span John Crimmings, January 2016
+    br
+

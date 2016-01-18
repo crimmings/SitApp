@@ -6,14 +6,11 @@ var express = require('express');
 var router = express.Router();
 
 
-
-
-/*
- * POST to addSitter
+/**
+ * POST to add new sitter to sitterlist collection in SitApp db.
+ *
  */
 
-// POST data (req.body) and insert it into 'sitterlist' collection in sitapp db.
-// returns an empty string if it works, an error message if it doesn't.
 
 router.post('/', function(req, res){
     var db = req.db;

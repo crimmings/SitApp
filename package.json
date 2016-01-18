@@ -17,6 +17,7 @@
     "fs": "0.0.2",
     "grunt": "^0.4.5",
     "jade": "~1.11.0",
+    "jade-bootstrap": "^1.0.1",
     "jquery": "^2.1.4",
     "jquery-ui": "^1.10.5",
     "mongodb": "^2.1.2",

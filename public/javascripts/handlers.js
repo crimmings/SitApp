@@ -43,35 +43,68 @@ $(document).ready(function() {
 
     // Populate Request Form Phone and Name By Clicking on Babysitter Name
 
-        $('#sitterList').on('click', '.linkshowsitter', function() {
-            event.preventDefault();
-            var id = $(this).attr("id");
-            //console.log("this is var id: " + id);
-            //console.log("this is sitterListData[0]._id: " + sitterListData[0]._id);
-            var sitterName = '';
-            var sitterPhone = '';
-            for (var i = 0; i < sitterListData.length; i++) {
-                if (sitterListData[i]._id === id) {
-                    sitterName = sitterListData[i].babysitter;
-                    sitterPhone = sitterListData[i].phone;
-                    $('input#requestSitterWho.requestwho').val(sitterPhone);
-                    $('input#requestSitterName.requestname').val(sitterName);
-                    //console.log(sitterPhone);
-                    //console.log(sitterName);
-                }
+    $('#sitterList').on('click', '.linkshowsitter', function() {
+        event.preventDefault();
+        var id = $(this).attr("id");
+        //console.log("this is var id: " + id);
+        //console.log("this is sitterListData[0]._id: " + sitterListData[0]._id);
+        var sitterName = '';
+        var sitterPhone = '';
+        for (var i = 0; i < sitterListData.length; i++) {
+            if (sitterListData[i]._id === id) {
+                sitterName = sitterListData[i].babysitter;
+                sitterPhone = sitterListData[i].phone;
+                $('input#requestSitterWho.requestwho').val(sitterPhone);
+                $('input#requestSitterName.requestname').val(sitterName);
+                //console.log(sitterPhone);
+                //console.log(sitterName);
+            }
+
+        }
+        popup(sitterPhone, sitterName); // function for popup request form w/ pre-populated name and email.
+
+    }); // end of request form handler
+
+    $('#sitterResponseList').on('click','td a.responseconfirmsitter', function() {
+        event.preventDefault();
+        var id = $(this).attr("id");
+        console.log(id);
+        var confirmPhone = '';
+        for(var i=0; i < sitterResponseData.length;i++){
+            if(sitterResponseData[i]._id === id){
+                confirmPhone = sitterResponseData[i].From;
+                console.log(sitterResponseData[0].From);
+                console.log(confirmPhone);
+                $('input#confirmSitterPhone.confirmphone').val(confirmPhone);
 
             }
-            popup(sitterPhone, sitterName); // function for popup request form w/ pre-populated name and email.
+        }
+        popupConfirm(confirmPhone);
+    });
 
-        }); // end of request form handler
+    $('#sitterResponseList').on('click', 'td a.responsedeclinesitter', function() {
+        event.preventDefault();
+        var id = $(this).attr("id");
+        console.log(id);
+        var confirmPhone = '';
+        for (var i = 0; i < sitterResponseData.length; i++) {
+            if (sitterResponseData[i]._id === id) {
+                confirmPhone = sitterResponseData[i].From;
+                console.log(sitterResponseData[0].From);
+                console.log(confirmPhone);
+                $('input#confirmSitterPhone.confirmphone').val(confirmPhone);
+            }
+        }
+        popupConfirm(confirmPhone);
+    });
+
+
 
     // Functions to fill table with sitters, appointments, and responses on page load
     fillTable();
     fillAppointmentsTable();
     fillResponseTable();
 });
-
-
 
 
 

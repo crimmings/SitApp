@@ -1,11 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var mongo = require('mongodb');
-var client = require('twilio')('AC2922b83396db0e8cac649fd001a6e5f5','30baba464da647a22ad211569d9faf25');
+var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID,process.env.TWILIO_AUTH_TOKEN);
 
-/* REQUEST A SITTER */
-// GET
 
+/** GET sitter request template
+ *
+ */
 
 router.get('/', function(req, res){
     console.log('We got a get');
@@ -13,7 +14,11 @@ router.get('/', function(req, res){
 }); // end of router get
 
 
-//POST
+
+/** POST twilio text message response to sitterrequests collection
+ *
+ */
+
 router.post('/', function (req, res) {
 
     console.log('My Name is Corntwilio!');
@@ -21,10 +26,13 @@ router.post('/', function (req, res) {
 
     client.sendMessage({
         to: req.body.who,
+       // from: process.env.TWILIO_NUMBER,
         from: process.env.TWILIO_NUMBER,
         body: "Hello! We need a sitter on " + req.body.when + " from " +
-        req.body.start + " to " + req.body.end + " at " + req.body.where
-        + ". Please respond Yes, No, or Maybe if you are free. (Fyi, this is an automated text from the Crimmings)."
+        req.body.start + " to " + req.body.end + ". " + req.body.message + "  Please respond " +
+        "with your availability, and include your name. ** This is an automated text from the Crimmings. Use our cells if " +
+            "you have questions. **"
+
     }, function (err, data) {
         if (err) {
             console.log(err);
@@ -35,20 +43,17 @@ router.post('/', function (req, res) {
 
 
         res.render('request', {
-            title: 'The Crimmings',
+            title: 'Request Confirmation',
             msg: 'Help is on the way!',
-            babysitters: 'Who: ' + req.body.name + '<' + req.body.who + '>',
-            when: 'Date: ' + req.body.when,
-            time: "Time: " + req.body.start + " to " + req.body.end,
-            where: "Where: " + req.body.where,
-            details: 'Details: ' + req.body.message,
+            babysitters: 'WHO: ' + req.body.name,
+            when: 'DATE: ' + req.body.when,
+            time: 'TIME: ' + req.body.start + " to " + req.body.end,
+            where: 'WHERE: ' + req.body.where,
+            details: 'DETAILS: ' + req.body.message,
             err: false,
             page: 'request'
         }); // end of res.render
     // end of else
-
-
-
 
 
     var db = req.db;

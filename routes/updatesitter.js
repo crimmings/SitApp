@@ -6,10 +6,10 @@ var express = require('express');
 var router = express.Router();
 
 
+/** PUT updated sitter information into sitterlist collection
+ *
+ */
 
-/*
-* PUT to updatesitter
-*/
 
 router.put('/:id', function(req,res){
     var db = req.db;

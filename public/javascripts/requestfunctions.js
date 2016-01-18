@@ -8,6 +8,7 @@
 
 function fillAppointmentsTable() {
 
+
     // Empty content string
     var tableContent = '';
 
@@ -27,7 +28,7 @@ function fillAppointmentsTable() {
             tableContent += '<td class="requestshowsitter">' + this.name + '</td>';
             tableContent += '<td class="requestwhensitter">' + this.when + '</td>';
             tableContent += '<td class="requesttimesitter">' + this.start + ' to ' + this.end + '</td>';
-            tableContent += '<td class="requestwheresitter">' + this.where + '</td>';
+            //tableContent += '<td class="requestwheresitter">' + this.where + '</td>';
             tableContent += '<td class="requestmessagesitter">' + this.message + '</td>';
             tableContent += '<td><a href="#" class="deleterequestsitter" rel="' + this._id + '">Delete</a></td>';
             tableContent += '</tr>';
@@ -37,7 +38,7 @@ function fillAppointmentsTable() {
         // Inject the whole content string into existing table
         $('#sitterRequestList table tbody').html(tableContent);
     });
-    setTimeout(fillAppointmentsTable,5000); // setTimeout to 5 seconds for auto page reload/table refresh
+    setTimeout(fillAppointmentsTable,50000); // setTimeout to 5 seconds for auto page reload/table refresh
 
 } // end of fill Appointments table function
 
@@ -53,7 +54,11 @@ function deleteAppointment(event) {
     event.preventDefault();
 
     // Pop up a confirmation dialog
-    var confirmation = confirm('Are you sure you want to delete this appointment?');
+    var confirmation = popupS.confirm({
+        content: 'Are you sure you want to delete this appointment?',
+        labelOk: 'Yes',
+        labelCancel: 'No'
+    });
 
 
     // Check confirmation

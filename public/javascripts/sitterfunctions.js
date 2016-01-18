@@ -20,8 +20,8 @@ function fillTable() {
         $.each(data, function(){
             tableContent += '<tr>';
             tableContent += '<td><a href="#" class="linkshowsitter" id="' + this._id + '" rel="' + this.babysitter + '">' + this.babysitter + '</a></td>';
-            //tableContent += '<td>' + this.phone + '</td>';
-            //tableContent += '<td class="linkemail">' + this.email + '</td>';
+            tableContent += '<td>' + this.phone + '</td>';
+            tableContent += '<td class="linkemail">' + this.email + '</td>';
             tableContent += '<td><a href="#" class="linkupdatesitter" rel="' + this._id + '">Update</a></td>';
             tableContent += '<td><a href="#" class="linkdeletesitter" rel="' + this._id + '">Delete</a></td>';
             tableContent += '</tr>';
@@ -170,7 +170,11 @@ function updateSitter(event) {
     event.preventDefault();
 
     // confirm dialog
-    var confirmation = confirm("Is this information correct?");
+    var confirmation = popupS.confirm({
+        content: 'Is this information correct?',
+        labelOk: 'Yes',
+        labelCancel: 'No'
+    });
 
     // check confirmation
 
@@ -276,5 +280,4 @@ function togglePanels(){
     $('#addSitterPanel').toggle();
     $('#updateSitterPanel').toggle();
 }
-
 

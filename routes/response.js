@@ -7,8 +7,8 @@ var express = require('express');
 var router = express.Router();
 
 
-/*
- * GET appointment requests list
+/**
+ * GET responses and put in sitterconfirmation collection
  */
 
 
@@ -28,10 +28,5 @@ router.get('/', function(req, res) {
 
 
 
- //router.get end
-
 module.exports = router;
 
-
-//collection.insert(req.body, function (err, result) {
-//  console.log(req.body);

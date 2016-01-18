@@ -23,12 +23,15 @@ function fillResponseTable() {
         $.each(data, function(){
             console.log(this.From);
             tableContent += '<tr>';
-            tableContent += '<td class="responseshowsitter">' + this.From + '</td>';
+            tableContent += '<td class="responseshowsitter" id="' + this._id + '">' + this.From + '</td>';
             tableContent += '<td class="responseresponsesitter">' + this.Body + '</td>';
+            tableContent += '<td><a href="#" class="responsedeclinesitter" id="' + this._id +'" rel="' + this._id + '">Decline</a></td>';
+            tableContent += '<td><a href="#" class="responseconfirmsitter" id="' + this._id + '" rel="' + this._id + '">Confirm</a></td>';
             tableContent += '<td><a href="#" class="deleteresponsesitter" rel="' + this._id + '">Delete</a></td>';
             tableContent += '</tr>';
         });
         console.log(sitterResponseData);
+
 
         // Inject the whole content string into existing table
         $('#sitterResponseList table tbody').html(tableContent);
@@ -49,9 +52,12 @@ function deleteResponse(event) {
     event.preventDefault();
 
     // Pop up a confirmation dialog
-    var confirmation = confirm('Are you sure you want to delete this response?');
+    var confirmation = popupS.confirm({
+        content: 'Are you sure you want to delete this response?',
+        labelOk: 'Yes',
+        labelCancel: 'No'
+    });
 
-    //
 
     // Check and make sure the sitter is confirmed
     if (confirmation === false) {
@@ -59,7 +65,6 @@ function deleteResponse(event) {
         return false;
 
     } else {
-
 
         // If confirmed, delete and do that Ajax thang
         $.ajax({

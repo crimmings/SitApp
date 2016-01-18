@@ -5,6 +5,10 @@ var express = require('express');
 var router = express.Router();
 
 
+/**
+ * GET sitter responses from sitterconfirmation collection
+ */
+
 router.get('/', function(req, res) {
     var db = req.db;
     var collection = db.get('sitterconfirmation');

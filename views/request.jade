@@ -7,7 +7,7 @@ block content
     h1= title
 
 
-    a.button.requestbtn(href='/') Make Another Request
+
 
 
 
@@ -18,11 +18,15 @@ block content
             div(class='msgbox err') #{msg}
         else
             div(class='msgbox success')
-                h3= msg
-                h3= babysitters
-                h3= when
-                h3= time
-                h3= where
-                h3= details
+                p#msg= msg
+                p#babysitters= babysitters
+                p#when= when
+                p#time= time
+                p#where= where
+                p#details= details
+                br
+                br
+                p
+                    a#another(href='/') MAKE ANOTHER REQUEST
 
 

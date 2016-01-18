@@ -5,12 +5,11 @@
 var express = require('express');
 var router = express.Router();
 
-
-/*
- * GET babysitter list
+/**
+ * GET babysitter list from sitterlist collection
  */
 
-// doing an HTTP GET to /users/babysitters will return JSON listing all of the sitters in the db
+
 router.get('/', function(req, res) {
     var db = req.db;
     var collection = db.get('sitterlist');

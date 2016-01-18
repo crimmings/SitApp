@@ -1,119 +1,223 @@
 body {
-  padding: 30px;
-  font: 14px Avenir, Helvetica, Arial, sans-serif;
+    padding: 30px;
+    font: 14px Avenir, Helvetica, Arial, sans-serif;
+    width: auto;
+    background-color: #F7F9F9;
+}
+
+h1 {
+    text-align: center;
+    margin: 5px 0 5px 10px;
+    padding: 5px 5px;
+    color: #355c7d;
+    font-size: 44px;
 }
 
 h2 {
-  margin:0 0 .5em 0;
+    text-align: center;
+    margin:5px 0 5px 10px;
+    padding: 5px 5px;
+    text-transform: uppercase;
+    color: #677077;
+}
+
+h3 {
+    color: #f2b632;
+    text-align: center;
+    margin: 5px 0 5px 10px;
+    padding: 5px 5px;
+    text-transform: lowercase;
+    font-size: 22px;
 }
 
 a {
-  color: #00B7FF;
+    color: #355c7d;
+    text-decoration: none;
+}
+
+a #another {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    color: #355c7d;
+
+}
+
+#sit {
+    margin: 20px 0;
+    padding: 10px;
+    color: #355c7d;
+    text-align: justify;
+    font-size: 20px;
+}
+
+header {
+    margin: 0 auto;
+    padding: 40px;
 }
 
 #wrapper {
-  padding-left:312px;
-  position:relative;
+    width: 1000px;
+    margin: 0 auto;
+
 }
 
 #sitterList {
-  margin:0 0 30px 0;
+    padding: 25px;
+    margin: 0 auto;
 
 }
 
 #sitterList table {
-  border-collapse:separate;
-  border-spacing:1px;
-  background:#CCC;
+    margin: 0 auto;
+    border-collapse:separate;
+    border-spacing:1px;
+    background: #CCC;
 }
+
 #sitterList table th {
-  background:#EEE;
-  font-weight:600;
-  padding:10px 20px;
-  text-align:center;
+    background:#EEE;
+    font-weight:600;
+    padding:10px 20px;
+    text-align:center;
 }
 #sitterList table tbody {
-  padding:0; margin:0;
-  border-collapse:collapse;
-  border-spacing:0px;
+    padding:0; margin:0;
+    border-collapse:collapse;
+    border-spacing:0px;
+    border: solid;
 }
 #sitterList table td {
-  background:#FFF;
-  padding:5px 10px;
-  text-align:center;
+    background: #FFF;
+    padding:5px 10px;
+    text-align:center;
 }
 
 #sitterInfo {
-  width:250px;
-  position:absolute;
-  top:0; left:0;
+    width:250px;
+    position:absolute;
+    top:0; left:0;
 }
 #sitterInfo p {
-  padding:15px;
-  border:1px solid #CCC;
-  background:rgba(80,120,255,0.05);
+    padding:15px;
+    border:1px solid #CCC;
+    background:rgba(80,120,255,0.05);
 }
+
+
 
 #updateSitterPanel{
-  display: none;
+    display: none;
 }
 
+
+
+#addSitter {
+    padding: 10px 20px;
+    margin: 0 auto;
+}
+
+
 fieldset {
-  border:0;
-  padding:0; margin:0;
+    text-align: center;
+    margin: 0 auto;
+    border: none;
+
+}
+
+#addSitter fieldset {
+    margin: 0 auto;
+}
+
+
+#addSitter fieldset input {
+    padding: 5px;
+    margin: 5px;
+}
+
+#updateSitter {
+    padding: 10px 20px;
+    margin: 0 auto;
+}
+
+#updateSitter fieldset {
+    margin: 0 auto;
+
+}
+
+#updateSitter fieldset input {
+    padding: 5px;
+    margin: 5px;
 }
 
 .hiddenanchor {
-  display: none;
+    display: none;
 }
 
 #sitterRequestList {
-  margin:0 0 30px 0;
+    padding: 25px;
+    margin: 0 auto;
 }
 #sitterRequestList table {
-  border-collapse:separate;
-  border-spacing:1px;
-  background:#CCC;
+    margin: 0 auto;
+    border-collapse:separate;
+    border-spacing:1px;
+    background:#CCC;
 }
 #sitterRequestList table th {
-  background:#EEE;
-  font-weight:600;
-  padding:10px 20px;
-  text-align:center;
+    background:#EEE;
+    font-weight:600;
+    padding:10px 20px;
+    text-align:center;
 }
 #sitterRequestList table tbody {
-  padding:0; margin:0;
-  border-collapse:collapse;
-  border-spacing:0px;
+    padding:0; margin:0;
+    border-collapse:collapse;
+    border-spacing:0px;
 }
 #sitterRequestList table td {
-  background:#FFF;
-  padding:5px 10px;
-  text-align:center;
+    background:#FFF;
+    padding:5px 10px;
+    text-align:center;
 }
 
 
 #sitterResponseList {
-  margin:0 0 30px 0;
+    padding: 25px;
+    margin: 0 auto;
 }
 #sitterResponseList table {
-  border-collapse:separate;
-  border-spacing:1px;
-  background:#CCC;
+    margin: 0 auto;
+    border-collapse:separate;
+    border-spacing:1px;
+    background:#CCC;
 }
 #sitterResponseList table th {
-  background:#EEE;
-  font-weight:600;
-  padding:10px 20px;
-  text-align:center;
+    background:#EEE;
+    font-weight:600;
+    padding:10px 20px;
+    text-align:center;
 }
 #sitterResponseList table tbody {
-  padding:0; margin:0;
-  border-collapse:collapse;
-  border-spacing:0px;
+    padding:0; margin:0;
+    border-collapse:collapse;
+    border-spacing:0px;
 }
 #sitterResponseList table td {
-  background:#FFF;
-  padding:5px 10px;
-  text-align:center;
+    background:#FFF;
+    padding:5px 10px;
+    text-align:center;
+}
+
+footer {
+    padding: 20px 0 0 0;
+    margin: 20px auto;
+    text-align: center;
+}
+
+#another {
+    margin: 10px;
+    padding: 10px;
 }

@@ -6,14 +6,13 @@ var express = require('express');
 var router = express.Router();
 
 
-/*
- * GET appointment requests list
+/**
+ * GET appointment requests list from sitterrequests collection
  */
 
-// doing an HTTP GET to /users/babysitters will return JSON listing all of the sitters in the db
 router.get('/', function(req, res) {
     var db = req.db;
-    var collection = db.get('sitterrequests'); //sitterrequests
+    var collection = db.get('sitterrequests');
     collection.find({}, {}, function (e, docs) {
         res.json(docs);
     });
