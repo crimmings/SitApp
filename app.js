@@ -13,7 +13,8 @@ var client = require('twilio')('xx','xx');
 //Database
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('ds047095.mongolab.com:47095/sitapp');
+var db = monk('localhost:27017/sitapp');
+    //'ds047095.mongolab.com:47095/sitapp');
 
 
 // Routes
