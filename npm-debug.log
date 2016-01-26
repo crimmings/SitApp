@@ -1,0 +1,399 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'mongoskin',
+1 verbose cli   '--save' ]
+2 info using npm@2.14.7
+3 info using node@v4.2.1
+4 verbose install initial load of /Users/crimmings/Desktop/SitApp/package.json
+5 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/body-parser/package.json
+6 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/cookie-parser/package.json
+7 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/datepair.js/package.json
+8 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/debug/package.json
+9 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/express/package.json
+10 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/fs/package.json
+11 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/grunt/package.json
+12 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/jade/package.json
+13 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/jade-bootstrap/package.json
+14 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/jquery/package.json
+15 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/jquery-ui/package.json
+16 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/mongodb/package.json
+17 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/monk/package.json
+18 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/morgan/package.json
+19 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/passport/package.json
+20 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/path/package.json
+21 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/popups/package.json
+22 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/serve-favicon/package.json
+23 verbose installManyTop reading scoped package data from /Users/crimmings/Desktop/SitApp/node_modules/twilio/package.json
+24 info package.json fs@0.0.2 fs is also the name of a node core module.
+25 info package.json fs@0.0.2 No description
+26 info package.json fs@0.0.2 No repository field.
+27 info package.json fs@0.0.2 No README data
+28 info package.json passport@0.3.2 No README data
+29 info package.json twilio@2.8.0 No README data
+30 info package.json grunt@0.4.5 No license field.
+31 info package.json jade-bootstrap@1.0.1 license should be a valid SPDX license expression
+32 info package.json jquery-ui@1.10.5 No license field.
+33 info package.json path@0.12.7 path is also the name of a node core module.
+34 info package.json monk@1.0.1 No license field.
+35 verbose readDependencies loading dependencies from /Users/crimmings/Desktop/SitApp/package.json
+36 silly cache add args [ 'mongoskin', null ]
+37 verbose cache add spec mongoskin
+38 silly cache add parsed spec Result {
+38 silly cache add   raw: 'mongoskin',
+38 silly cache add   scope: null,
+38 silly cache add   name: 'mongoskin',
+38 silly cache add   rawSpec: '',
+38 silly cache add   spec: '*',
+38 silly cache add   type: 'range' }
+39 silly addNamed mongoskin@*
+40 verbose addNamed "*" is a valid semver range for mongoskin
+41 silly addNameRange { name: 'mongoskin', range: '*', hasData: false }
+42 silly mapToRegistry name mongoskin
+43 silly mapToRegistry using default registry
+44 silly mapToRegistry registry https://registry.npmjs.org/
+45 silly mapToRegistry uri https://registry.npmjs.org/mongoskin
+46 verbose addNameRange registry:https://registry.npmjs.org/mongoskin not in flight; fetching
+47 verbose request uri https://registry.npmjs.org/mongoskin
+48 verbose request no auth needed
+49 info attempt registry request try #1 at 9:41:46 AM
+50 verbose request id 3e522bf883d692f7
+51 verbose etag "AE1M8EQ6NB94Q9TI0IAVDCYIB"
+52 http request GET https://registry.npmjs.org/mongoskin
+53 http 304 https://registry.npmjs.org/mongoskin
+54 verbose headers { date: 'Tue, 26 Jan 2016 15:41:47 GMT',
+54 verbose headers   via: '1.1 varnish',
+54 verbose headers   'cache-control': 'max-age=300',
+54 verbose headers   etag: '"AE1M8EQ6NB94Q9TI0IAVDCYIB"',
+54 verbose headers   age: '0',
+54 verbose headers   connection: 'keep-alive',
+54 verbose headers   'x-served-by': 'cache-ord1723-ORD',
+54 verbose headers   'x-cache': 'MISS',
+54 verbose headers   'x-cache-hits': '0',
+54 verbose headers   'x-timer': 'S1453822907.108688,VS0,VE107',
+54 verbose headers   vary: 'Accept' }
+55 silly get cb [ 304,
+55 silly get   { date: 'Tue, 26 Jan 2016 15:41:47 GMT',
+55 silly get     via: '1.1 varnish',
+55 silly get     'cache-control': 'max-age=300',
+55 silly get     etag: '"AE1M8EQ6NB94Q9TI0IAVDCYIB"',
+55 silly get     age: '0',
+55 silly get     connection: 'keep-alive',
+55 silly get     'x-served-by': 'cache-ord1723-ORD',
+55 silly get     'x-cache': 'MISS',
+55 silly get     'x-cache-hits': '0',
+55 silly get     'x-timer': 'S1453822907.108688,VS0,VE107',
+55 silly get     vary: 'Accept' } ]
+56 verbose etag https://registry.npmjs.org/mongoskin from cache
+57 verbose get saving mongoskin to /Users/crimmings/.npm/registry.npmjs.org/mongoskin/.cache.json
+58 silly addNameRange number 2 { name: 'mongoskin', range: '*', hasData: true }
+59 silly addNameRange versions [ 'mongoskin',
+59 silly addNameRange   [ '0.1.0',
+59 silly addNameRange     '0.1.1',
+59 silly addNameRange     '0.1.2',
+59 silly addNameRange     '0.1.3',
+59 silly addNameRange     '0.2.0',
+59 silly addNameRange     '0.2.1',
+59 silly addNameRange     '0.2.2',
+59 silly addNameRange     '0.2.3',
+59 silly addNameRange     '0.3.0',
+59 silly addNameRange     '0.3.3',
+59 silly addNameRange     '0.3.4',
+59 silly addNameRange     '0.3.5',
+59 silly addNameRange     '0.3.6',
+59 silly addNameRange     '0.3.7',
+59 silly addNameRange     '0.4.0',
+59 silly addNameRange     '0.4.1',
+59 silly addNameRange     '0.4.2',
+59 silly addNameRange     '0.4.3',
+59 silly addNameRange     '0.4.4',
+59 silly addNameRange     '0.5.0',
+59 silly addNameRange     '0.6.0',
+59 silly addNameRange     '0.6.1',
+59 silly addNameRange     '1.3.20-alpha',
+59 silly addNameRange     '1.3.20',
+59 silly addNameRange     '1.3.21',
+59 silly addNameRange     '1.3.22',
+59 silly addNameRange     '1.3.23',
+59 silly addNameRange     '1.4.0',
+59 silly addNameRange     '1.4.1',
+59 silly addNameRange     '1.4.2',
+59 silly addNameRange     '1.4.3',
+59 silly addNameRange     '1.4.4',
+59 silly addNameRange     '1.4.10-beta',
+59 silly addNameRange     '1.4.10',
+59 silly addNameRange     '1.4.11',
+59 silly addNameRange     '1.4.12',
+59 silly addNameRange     '1.4.13',
+59 silly addNameRange     '2.0.0',
+59 silly addNameRange     '2.0.1',
+59 silly addNameRange     '2.0.2',
+59 silly addNameRange     '2.0.3' ] ]
+60 silly addNamed mongoskin@2.0.3
+61 verbose addNamed "2.0.3" is a plain semver version for mongoskin
+62 silly mapToRegistry name mongoskin
+63 silly mapToRegistry using default registry
+64 silly mapToRegistry registry https://registry.npmjs.org/
+65 silly mapToRegistry uri https://registry.npmjs.org/mongoskin
+66 verbose addRemoteTarball https://registry.npmjs.org/mongoskin/-/mongoskin-2.0.3.tgz not in flight; adding
+67 verbose addRemoteTarball [ 'https://registry.npmjs.org/mongoskin/-/mongoskin-2.0.3.tgz',
+67 verbose addRemoteTarball   'fa6d5429b22175c9d481b90c2aabcfdf067a466d' ]
+68 info retry fetch attempt 1 at 9:41:46 AM
+69 info attempt registry request try #1 at 9:41:46 AM
+70 http fetch GET https://registry.npmjs.org/mongoskin/-/mongoskin-2.0.3.tgz
+71 http fetch 200 https://registry.npmjs.org/mongoskin/-/mongoskin-2.0.3.tgz
+72 silly fetchAndShaCheck shasum fa6d5429b22175c9d481b90c2aabcfdf067a466d
+73 verbose addTmpTarball /var/folders/35/7y3wm5w54t9ffmx02twscld00000gn/T/npm-38437-c4926cc4/registry.npmjs.org/mongoskin/-/mongoskin-2.0.3.tgz not in flight; adding
+74 verbose addTmpTarball already have metadata; skipping unpack for mongoskin@2.0.3
+75 silly cache afterAdd mongoskin@2.0.3
+76 verbose afterAdd /Users/crimmings/.npm/mongoskin/2.0.3/package/package.json not in flight; writing
+77 verbose afterAdd /Users/crimmings/.npm/mongoskin/2.0.3/package/package.json written
+78 silly install resolved [ { name: 'mongoskin',
+78 silly install resolved     description: 'The future layer above node-mongodb-native',
+78 silly install resolved     version: '2.0.3',
+78 silly install resolved     author: { name: 'Gui Lin', email: 'guileen@gmail.com' },
+78 silly install resolved     homepage: 'https://github.com/kissjs/node-mongoskin',
+78 silly install resolved     repository:
+78 silly install resolved      { type: 'git',
+78 silly install resolved        url: 'git://github.com/kissjs/node-mongoskin.git' },
+78 silly install resolved     bugs: { url: 'https://github.com/kissjs/node-mongoskin/issues' },
+78 silly install resolved     main: './index.js',
+78 silly install resolved     keywords: [ 'mongodb', 'database', 'nosql' ],
+78 silly install resolved     engines: { node: '>= 0.4.0' },
+78 silly install resolved     peerDependencies: { mongodb: '~2.0' },
+78 silly install resolved     devDependencies:
+78 silly install resolved      { istanbul: '0.3.17',
+78 silly install resolved        mocha: '~1.17.1',
+78 silly install resolved        coveralls: '~2.10.0',
+78 silly install resolved        'mocha-lcov-reporter': '0.0.1',
+78 silly install resolved        'travis-cov': '~0.2.5',
+78 silly install resolved        mongodb: '~2.0',
+78 silly install resolved        should: '~3.1.2' },
+78 silly install resolved     scripts: { test: 'mocha', coverage: 'istanbul cover _mocha' },
+78 silly install resolved     directories: { example: './examples', lib: './lib/mongoskin' },
+78 silly install resolved     license: 'MIT',
+78 silly install resolved     contributors:
+78 silly install resolved      [ [Object],
+78 silly install resolved        [Object],
+78 silly install resolved        [Object],
+78 silly install resolved        [Object],
+78 silly install resolved        [Object],
+78 silly install resolved        [Object],
+78 silly install resolved        [Object],
+78 silly install resolved        [Object],
+78 silly install resolved        [Object],
+78 silly install resolved        [Object],
+78 silly install resolved        [Object],
+78 silly install resolved        [Object] ],
+78 silly install resolved     gitHead: '108628ce641b094e5a9c439c15af761857277bd4',
+78 silly install resolved     _id: 'mongoskin@2.0.3',
+78 silly install resolved     _shasum: 'fa6d5429b22175c9d481b90c2aabcfdf067a466d',
+78 silly install resolved     _from: 'mongoskin@*',
+78 silly install resolved     _npmVersion: '2.9.1',
+78 silly install resolved     _nodeVersion: '0.12.3',
+78 silly install resolved     _npmUser: { name: 'vkarpov15', email: 'val@karpov.io' },
+78 silly install resolved     dist:
+78 silly install resolved      { shasum: 'fa6d5429b22175c9d481b90c2aabcfdf067a466d',
+78 silly install resolved        tarball: 'http://registry.npmjs.org/mongoskin/-/mongoskin-2.0.3.tgz' },
+78 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
+78 silly install resolved     _resolved: 'https://registry.npmjs.org/mongoskin/-/mongoskin-2.0.3.tgz' } ]
+79 info install mongoskin@2.0.3 into /Users/crimmings/Desktop/SitApp
+80 info installOne mongoskin@2.0.3
+81 verbose installOne of mongoskin to /Users/crimmings/Desktop/SitApp not in flight; installing
+82 verbose lock using /Users/crimmings/.npm/_locks/mongoskin-78dd477ca243ed59.lock for /Users/crimmings/Desktop/SitApp/node_modules/mongoskin
+83 silly install write writing mongoskin 2.0.3 to /Users/crimmings/Desktop/SitApp/node_modules/mongoskin
+84 verbose unbuild node_modules/mongoskin
+85 silly gentlyRm /Users/crimmings/Desktop/SitApp/node_modules/mongoskin is being purged from base /Users/crimmings/Desktop/SitApp
+86 verbose gentlyRm don't care about contents; nuking /Users/crimmings/Desktop/SitApp/node_modules/mongoskin
+87 verbose tar unpack /Users/crimmings/.npm/mongoskin/2.0.3/package.tgz
+88 verbose tar unpacking to /Users/crimmings/Desktop/SitApp/node_modules/mongoskin
+89 silly gentlyRm /Users/crimmings/Desktop/SitApp/node_modules/mongoskin is being purged
+90 verbose gentlyRm don't care about contents; nuking /Users/crimmings/Desktop/SitApp/node_modules/mongoskin
+91 silly gunzTarPerm modes [ '755', '644' ]
+92 silly gunzTarPerm extractEntry package.json
+93 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+94 silly gunzTarPerm extractEntry .npmignore
+95 silly gunzTarPerm modified mode [ '.npmignore', 436, 420 ]
+96 silly gunzTarPerm extractEntry LICENSE
+97 silly gunzTarPerm modified mode [ 'LICENSE', 436, 420 ]
+98 silly gunzTarPerm extractEntry index.js
+99 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+100 silly gunzTarPerm extractEntry Readme.md
+101 silly gunzTarPerm modified mode [ 'Readme.md', 436, 420 ]
+102 silly gunzTarPerm extractEntry History.md
+103 silly gunzTarPerm modified mode [ 'History.md', 436, 420 ]
+104 silly gunzTarPerm extractEntry Makefile
+105 silly gunzTarPerm modified mode [ 'Makefile', 436, 420 ]
+106 silly gunzTarPerm extractEntry .jshintrc
+107 silly gunzTarPerm modified mode [ '.jshintrc', 436, 420 ]
+108 silly gunzTarPerm extractEntry coverage/coverage.json
+109 silly gunzTarPerm modified mode [ 'coverage/coverage.json', 436, 420 ]
+110 silly gunzTarPerm extractEntry coverage/lcov-report/prettify.js
+111 silly gunzTarPerm modified mode [ 'coverage/lcov-report/prettify.js', 436, 420 ]
+112 silly gunzTarPerm extractEntry coverage/lcov-report/sorter.js
+113 silly gunzTarPerm modified mode [ 'coverage/lcov-report/sorter.js', 436, 420 ]
+114 silly gunzTarPerm extractEntry coverage/lcov-report/base.css
+115 silly gunzTarPerm modified mode [ 'coverage/lcov-report/base.css', 436, 420 ]
+116 silly gunzTarPerm extractEntry coverage/lcov-report/index.html
+117 silly gunzTarPerm modified mode [ 'coverage/lcov-report/index.html', 436, 420 ]
+118 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/index.html
+119 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/index.html', 436, 420 ]
+120 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/index.js.html
+121 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/index.js.html', 436, 420 ]
+122 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/lib/grid_store.js.html
+123 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/lib/grid_store.js.html',
+123 silly gunzTarPerm   436,
+123 silly gunzTarPerm   420 ]
+124 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/lib/admin.js.html
+125 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/lib/admin.js.html',
+125 silly gunzTarPerm   436,
+125 silly gunzTarPerm   420 ]
+126 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/lib/constant.js.html
+127 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/lib/constant.js.html',
+127 silly gunzTarPerm   436,
+127 silly gunzTarPerm   420 ]
+128 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/lib/cursor.js.html
+129 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/lib/cursor.js.html',
+129 silly gunzTarPerm   436,
+129 silly gunzTarPerm   420 ]
+130 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/lib/db.js.html
+131 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/lib/db.js.html',
+131 silly gunzTarPerm   436,
+131 silly gunzTarPerm   420 ]
+132 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/lib/collection.js.html
+133 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/lib/collection.js.html',
+133 silly gunzTarPerm   436,
+133 silly gunzTarPerm   420 ]
+134 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/lib/helper.js.html
+135 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/lib/helper.js.html',
+135 silly gunzTarPerm   436,
+135 silly gunzTarPerm   420 ]
+136 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/lib/index.html
+137 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/lib/index.html',
+137 silly gunzTarPerm   436,
+137 silly gunzTarPerm   420 ]
+138 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/lib/index.js.html
+139 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/lib/index.js.html',
+139 silly gunzTarPerm   436,
+139 silly gunzTarPerm   420 ]
+140 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/lib/mongo_client.js.html
+141 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/lib/mongo_client.js.html',
+141 silly gunzTarPerm   436,
+141 silly gunzTarPerm   420 ]
+142 silly gunzTarPerm extractEntry coverage/lcov-report/node-mongoskin/lib/utils.js.html
+143 silly gunzTarPerm modified mode [ 'coverage/lcov-report/node-mongoskin/lib/utils.js.html',
+143 silly gunzTarPerm   436,
+143 silly gunzTarPerm   420 ]
+144 silly gunzTarPerm extractEntry coverage/lcov-report/prettify.css
+145 silly gunzTarPerm modified mode [ 'coverage/lcov-report/prettify.css', 436, 420 ]
+146 silly gunzTarPerm extractEntry coverage/lcov-report/sort-arrow-sprite.png
+147 silly gunzTarPerm modified mode [ 'coverage/lcov-report/sort-arrow-sprite.png', 436, 420 ]
+148 silly gunzTarPerm extractEntry coverage/lcov.info
+149 silly gunzTarPerm modified mode [ 'coverage/lcov.info', 436, 420 ]
+150 silly gunzTarPerm extractEntry examples/admin.js
+151 silly gunzTarPerm modified mode [ 'examples/admin.js', 436, 420 ]
+152 silly gunzTarPerm extractEntry examples/close.js
+153 silly gunzTarPerm modified mode [ 'examples/close.js', 436, 420 ]
+154 silly gunzTarPerm extractEntry examples/config.js
+155 silly gunzTarPerm modified mode [ 'examples/config.js', 436, 420 ]
+156 silly gunzTarPerm extractEntry examples/generateId.js
+157 silly gunzTarPerm modified mode [ 'examples/generateId.js', 436, 420 ]
+158 silly gunzTarPerm extractEntry examples/gridfs.js
+159 silly gunzTarPerm modified mode [ 'examples/gridfs.js', 436, 420 ]
+160 silly gunzTarPerm extractEntry examples/insert.js
+161 silly gunzTarPerm modified mode [ 'examples/insert.js', 436, 420 ]
+162 silly gunzTarPerm extractEntry examples/replSetBenchmark.js
+163 silly gunzTarPerm modified mode [ 'examples/replSetBenchmark.js', 436, 420 ]
+164 silly gunzTarPerm extractEntry examples/replset.js
+165 silly gunzTarPerm modified mode [ 'examples/replset.js', 436, 420 ]
+166 silly gunzTarPerm extractEntry examples/update.js
+167 silly gunzTarPerm modified mode [ 'examples/update.js', 436, 420 ]
+168 silly gunzTarPerm extractEntry .travis.yml
+169 silly gunzTarPerm modified mode [ '.travis.yml', 436, 420 ]
+170 silly gunzTarPerm extractEntry lib/admin.js
+171 silly gunzTarPerm modified mode [ 'lib/admin.js', 436, 420 ]
+172 silly gunzTarPerm extractEntry lib/collection.js
+173 silly gunzTarPerm modified mode [ 'lib/collection.js', 436, 420 ]
+174 silly gunzTarPerm extractEntry lib/constant.js
+175 silly gunzTarPerm modified mode [ 'lib/constant.js', 436, 420 ]
+176 silly gunzTarPerm extractEntry lib/cursor.js
+177 silly gunzTarPerm modified mode [ 'lib/cursor.js', 436, 420 ]
+178 silly gunzTarPerm extractEntry lib/db.js
+179 silly gunzTarPerm modified mode [ 'lib/db.js', 436, 420 ]
+180 silly gunzTarPerm extractEntry lib/grid_store.js
+181 silly gunzTarPerm modified mode [ 'lib/grid_store.js', 436, 420 ]
+182 silly gunzTarPerm extractEntry lib/helper.js
+183 silly gunzTarPerm modified mode [ 'lib/helper.js', 436, 420 ]
+184 silly gunzTarPerm extractEntry lib/index.js
+185 silly gunzTarPerm modified mode [ 'lib/index.js', 436, 420 ]
+186 silly gunzTarPerm extractEntry lib/mongo_client.js
+187 silly gunzTarPerm modified mode [ 'lib/mongo_client.js', 436, 420 ]
+188 silly gunzTarPerm extractEntry lib/utils.js
+189 silly gunzTarPerm modified mode [ 'lib/utils.js', 436, 420 ]
+190 silly gunzTarPerm extractEntry AUTHORS
+191 silly gunzTarPerm modified mode [ 'AUTHORS', 436, 420 ]
+192 verbose write writing to /Users/crimmings/Desktop/SitApp/node_modules/mongoskin/package.json
+193 info preinstall mongoskin@2.0.3
+194 verbose readDependencies loading dependencies from /Users/crimmings/Desktop/SitApp/node_modules/mongoskin/package.json
+195 silly prepareForInstallMany adding mongodb@~2.0 from mongoskin peerDependencies
+196 warn peerDependencies The peer dependency mongodb@~2.0 included from mongoskin will no
+197 warn peerDependencies longer be automatically installed to fulfill the peerDependency
+198 warn peerDependencies in npm 3+. Your application will need to depend on it explicitly.
+199 verbose readDependencies loading dependencies from /Users/crimmings/Desktop/SitApp/node_modules/mongoskin/package.json
+200 silly install resolved []
+201 verbose about to build /Users/crimmings/Desktop/SitApp/node_modules/mongoskin
+202 info build /Users/crimmings/Desktop/SitApp/node_modules/mongoskin
+203 info linkStuff mongoskin@2.0.3
+204 silly linkStuff mongoskin@2.0.3 has /Users/crimmings/Desktop/SitApp/node_modules as its parent node_modules
+205 verbose linkBins mongoskin@2.0.3
+206 verbose linkMans mongoskin@2.0.3
+207 verbose rebuildBundles mongoskin@2.0.3
+208 info install mongoskin@2.0.3
+209 info postinstall mongoskin@2.0.3
+210 verbose readDependencies loading dependencies from /Users/crimmings/Desktop/SitApp/package.json
+211 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/body-parser/package.json
+212 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/cookie-parser/package.json
+213 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/datepair.js/package.json
+214 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/debug/package.json
+215 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/express/package.json
+216 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/fs/package.json
+217 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/grunt/package.json
+218 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/jade/package.json
+219 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/jade-bootstrap/package.json
+220 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/jquery/package.json
+221 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/jquery-ui/package.json
+222 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/mongodb/package.json
+223 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/mongoskin/package.json
+224 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/monk/package.json
+225 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/morgan/package.json
+226 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/passport/package.json
+227 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/path/package.json
+228 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/popups/package.json
+229 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/serve-favicon/package.json
+230 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/twilio/package.json
+231 verbose targetResolver reading package data from /Users/crimmings/Desktop/SitApp/node_modules/.bin/jade/package.json
+232 verbose already installed skipping mongodb@~2.0 /Users/crimmings/Desktop/SitApp
+233 silly install resolved []
+234 verbose unlock done using /Users/crimmings/.npm/_locks/mongoskin-78dd477ca243ed59.lock for /Users/crimmings/Desktop/SitApp/node_modules/mongoskin
+235 verbose validateInstall loading /Users/crimmings/Desktop/SitApp/package.json for validation
+236 verbose stack Error: The package mongodb@2.1.4 does not satisfy its siblings' peerDependencies requirements!
+236 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+236 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:268:7
+236 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+236 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+236 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+236 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+236 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+236 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+236 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+236 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+237 verbose cwd /Users/crimmings/Desktop/SitApp
+238 error Darwin 15.2.0
+239 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "mongoskin" "--save"
+240 error node v4.2.1
+241 error npm  v2.14.7
+242 error code EPEERINVALID
+243 error peerinvalid The package mongodb@2.1.4 does not satisfy its siblings' peerDependencies requirements!
+243 error peerinvalid Peer mongoskin@2.0.3 wants mongodb@~2.0
+244 verbose exit [ 1, true ]
