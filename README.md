@@ -11,4 +11,3 @@ with the hopes of improving its usability and making it possible for multiple fa
 
 I spent two weeks working on this project, incorporating a full-stack of software development tools.
 This included JavaScript, jQuery, Node.js, ExpressJS, MongoDB, and Jade. I also used the Twilio API
-to serve the project's SMS capabilities.

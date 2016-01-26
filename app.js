@@ -13,7 +13,7 @@ var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID,proces.env.TWILIO_
 //Database
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/sitapp');
+var db = monk('ds047095.mongolab.com:47095/sitapp');
 var mongoose = require('mongoose');
 
 // Routes
@@ -41,41 +41,6 @@ app.set('view engine', 'jade');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-app.get('/testtwilio', function(req,res){
-  client.sendMessage({
-    to: process.env.MY_CELL,
-    from: process.env.TWILIO_NUMBER,
-    body: "twilio test"
-  }, function(err, data){
-    if(err)
-      console.log(err);
-    console.log(data);
-  });
-});
-
-app.get('/testtwilio/yes', function(req,res){
-  client.sendMessage({
-    to: process.env.MY_CELL,
-    from: process.env.TWILIO_NUMBER,
-    body: "YES"
-  }, function(err,data){
-    if(err)
-      console.log(err);
-    console.log(data);
-  });
-});
-
-app.get('/testtwilio/no', function(req,res){
-  client.sendMessage({
-    to: process.env.MY_CELL,
-    from: process.env.TWILIO_NUMBER,
-    body: "NO"
-  }, function(err,data){
-    if(err)
-      console.log(err);
-    console.log(data);
-  });
-});
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
