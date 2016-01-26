@@ -13,7 +13,8 @@ var client = require('twilio')('xx','xx');
 //Database
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/sitapp');
+var db = monk('ds047095.mongolab.com:47095/sitapp');
+//('localhost:27017/sitapp');
     //'ds047095.mongolab.com:47095/sitapp');
 
 
@@ -51,6 +52,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.set('port', (process.env.PORT || 3000));
+
+app.listen(app.get('port'), function(){
+  console.log('listening on port: ' + app.get('port'));
+});
 
 // make db accessible to our router
 app.use(function(req, res, next){
@@ -89,7 +95,7 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    res.status(err.status || process.env.PORT);
+    res.status(err.status || 500);
     res.render('error', {
       message: err.message,
       error: err
@@ -100,7 +106,7 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || process.env.PORT);
+  res.status(err.status || 500);
   res.render('error', {
     message: err.message,
     error: {}
