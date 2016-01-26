@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jquery = require('jquery');
 var fs = require('fs');
-var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID,proces.env.TWILIO_AUTH_TOKEN);
+var client = require('twilio')('AC2922b83396db0e8cac649fd001a6e5f5','ac8cde32a5679d0ad33d83b83bd51aee');
 //var bootstrap = require('bootstrap');
 
 
@@ -14,7 +14,7 @@ var client = require('twilio')(process.env.TWILIO_ACCOUNT_SID,proces.env.TWILIO_
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('ds047095.mongolab.com:47095/sitapp');
-var mongoose = require('mongoose');
+
 
 // Routes
 var routes = require('./routes/index');
@@ -88,7 +88,7 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
+    res.status(err.status || process.env.PORT);
     res.render('error', {
       message: err.message,
       error: err
@@ -99,7 +99,7 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(err.status || 500);
+  res.status(err.status || process.env.PORT);
   res.render('error', {
     message: err.message,
     error: {}
