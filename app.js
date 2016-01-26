@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var jquery = require('jquery');
 var fs = require('fs');
-var client = require('twilio')('AC2922b83396db0e8cac649fd001a6e5f5','ac8cde32a5679d0ad33d83b83bd51aee');
+var client = require('twilio')('xx','xx');
 //var bootstrap = require('bootstrap');
 
 
